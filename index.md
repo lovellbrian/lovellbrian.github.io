@@ -1,7 +1,7 @@
-Hello and welcome to this blog. 
+Welcome to my FastAI Blog!
 
 ![Image of fast.ai logo](images/logo.png)
 
-## Brian Lovell's Awesome AI Blog
+## Brian Lovell's Awesome FastAI Blog
 
-And you can include links, like this [link to fast.ai](https://www.fast.ai). Posts will appear after this file. 
+AI have recently started to use [link to fast.ai](https://www.fast.ai) and this blog is to document my journey. 
