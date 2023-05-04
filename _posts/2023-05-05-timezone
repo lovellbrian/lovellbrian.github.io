@@ -9,7 +9,7 @@ So the fix is to simply add the following to _config.yml:
 # Set Time.zone to the time zone name of your choice, e.g. `America/New_York`. 
 # Otherwise posts may not appear until that time has passed in the default time zone. 
 # Note that you can schedule posts in the future in any time zone by changing the post's file name date prefix. 
-#For example, to schedule a post for 2023-05-05 08:00:00 UTC, name the file 2023-05-05-08-00-00-future-post.md with the following YAML front matter.
+# For example, to schedule a post for 2023-05-05 08:00:00 UTC, name the file 2023-05-05-08-00-00-future-post.md with the following YAML front matter.
 time_zone: Australia/Brisbane
 ```
 
