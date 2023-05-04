@@ -1,0 +1,20 @@
+# Problem with Timezone in Github Pages
+
+I had an issue with posts not appearing when I was posting at 3:00 am.  As Australia is ahead of the US, I thought it might be a timezone issue.  I found the following solution in [this post](https://stackoverflow.com/questions/49963982/jekyll-posts-not-showing-up-on-github-pages).
+
+So the fix is to simply add the following to _config.yml:
+
+```yaml
+
+# Set Time.zone to the time zone name of your choice, e.g. `America/New_York`. 
+# Otherwise posts may not appear until that time has passed in the default time zone. 
+# Note that you can schedule posts in the future in any time zone by changing the post's file name date prefix. 
+#For example, to schedule a post for 2023-05-05 08:00:00 UTC, name the file 2023-05-05-08-00-00-future-post.md with the following YAML front matter.
+time_zone: Australia/Brisbane
+```
+
+Happy GitHub Paging,
+
+Brian
+
+![](/images/Lovell_portrait_small.jpg "Brian Lovell")
