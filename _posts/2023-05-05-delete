@@ -1,0 +1,55 @@
+# Refreshing Student Repositories in GitHub Classroom
+
+Sometimes I have to modify assignments and I want the students to work on the latest version. That is simple you may think.  Simply get the students to synchronise their repository.  That's what I thought. 
+
+However the student respositories are not forks or clones.  They must come from a template so the connection to the source repository is lost.  There are no branches, no history, and no remote. Each student repository is a lone unconnected, fresh as a daisy, respository.
+
+Well, how about getting the students to re-accept the assignment invitation?  This does not update the student respository because the repository must be empty so that git can fork from the template.  
+
+My current solution is to get the student to delete their assignment repository and get a fresh copy by reaccepting their assignment invite. This works fine. 
+
+Unfortunately, some students has clicked the `Leave` button instead of the `Delete` button.  When they do this, they immediately loose access to the repository which means they can n o longer delete it. Fortunately, as I a collaborator on all class assignments, I can delete the repository manually for them.  I have even figured out how to restore an accidentally deleted repository, as this is exactly what I did.
+
+Here are some instructions I have just given to my students. 
+
+---
+
+## Fetching Updates of the Assignment Respositories
+
+Dear Students,
+
+I may need to update assignments from time to time.  If you want to refresh your repository do as follows:
+
+
+1. First delete your Assignment repository in GitHub
+    - Select the *The-University-of-Queensland-Lovell/assignment-3-solution-repository-<yourGitHubName>* repository in GitHub
+    - Click on Settings/General and scroll to the bottom until you find *Delete Repository*
+
+
+1. Then accept the Assignment invitation again to fetch the updated Assignment template.
+
+---
+
+## !!%@# I Deleted the Wrong Repository
+
+
+Fear not. This is easily fixed as I just found out.
+
+
+- Click on your user icon in the top right corner of GitHub
+- Select `Settings` from the drop down
+- Now click `Repositories` in the left menu
+- Click on `Deleted Repositories` and select `Restore`
+
+---
+
+## Please do not LEAVE repositories. DELETE them.
+The instuctions below advise you to DELETE respositories.  Please do not LEAVE them. 
+
+When you delete them they can be restored.  If you leave them, you immediately loose access to the repositories. This means that you cannot delete them as you have no access.  Fortunately, I retain access as the classroom administrators are also collaborators on every repository.  So I can still delete them if required. In summary, do not push the LEAVE button.
+
+Happy GitHubbing,
+
+Brian
+
+---
