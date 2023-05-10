@@ -21,7 +21,7 @@ twitter_username: LovellProf
 time_zone: Australia/Brisbane
 
 # Set baseurl to help display pdfs with {{ site.baseurl }}
-baseurl: /lovellbrian.github.io
+# baseurl: /lovellbrian.github.io
 
 # Set this to true to get LaTeX math equation support 
 use_math:
