@@ -20,6 +20,9 @@ twitter_username: LovellProf
 # For example, to schedule a post for 2023-05-05 08:00:00 UTC, name the file 2023-05-05-08-00-00-future-post.md with the following YAML front matter.
 time_zone: Australia/Brisbane
 
+# Set baseurl to help display pdfs with {{ site.baseurl }}
+baseurl: /lovellbrian.github.io
+
 # Set this to true to get LaTeX math equation support 
 use_math:
 
