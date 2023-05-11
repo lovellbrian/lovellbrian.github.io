@@ -9,6 +9,7 @@ I finally have my local GPU working on Windows.  I have been trying to get this 
 - [fastai Windows](https://forums.fast.ai/t/platform-windows/39)
 
 The final install command was: 
+
 `pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117`
 
 Then I was missing some common libraries in Python, so I ran the following comment in the [course22](https://github.com/fastai/course22) folder.
