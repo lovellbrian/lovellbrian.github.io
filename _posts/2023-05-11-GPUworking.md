@@ -20,7 +20,7 @@ Now my notebooks run in VS Code on my local GPU.
 
 ![](/images/GPU.gif "Here is my GPU at 100%") 
 
-100% GPU utilisation.  I am so happy.  
+Up to 100% GPU utilisation, so I am so happy.  
 
 Happy GitHub GPUing, 
 
