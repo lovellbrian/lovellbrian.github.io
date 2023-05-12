@@ -1,4 +1,4 @@
-# Running Code in a DevContainer instead of Codespaces
+# Running Code in a DevContainer Instead of Codespaces
 
 ## Introduction
 
