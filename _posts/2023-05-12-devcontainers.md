@@ -6,7 +6,7 @@ You can run code in a DevContainer instead of Codespaces. This is very useful if
 
 Read this [article](https://code.visualstudio.com/docs/remote/containers) to learn more about DevContainers. Also look up [Docker](https://www.docker.com/) if you are not familiar with this wonderful code.  A Docker image can be used to run a full linux machine on windows, or even a full linux machine on a Raspberry Pi.
 
-Here is a [tutorial](https://code.visualstudio.com/docs/devcontainers/tutorial) on the topic. 
+Here is a [tutorial](https://code.visualstudio.com/docs/devcontainers/tutorial) on the topic.
 
 Happy DevContainering,
 
