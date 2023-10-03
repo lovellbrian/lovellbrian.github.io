@@ -18,8 +18,14 @@ First check that Windows Subsystem for Linux is ticked in Windows Features as pe
 
 ![Alt text](/images/image.png)
 
-Now open a command window (cmd) in administrator mode and install wsl.  Then install the Ubuntu-22.04 distribution with the following instructions.
-https://learn.microsoft.com/en-us/windows/wsl/install
+Now open a command window (cmd) in administrator mode and install wsl.  Then install the Ubuntu-22.04 distribution with the following instructions based on these [Microsoft Instructions](https://learn.microsoft.com/en-us/windows/wsl/install).
+
+Update to latest wsl version. You must use WSL version 2.
+
+```console
+ wsl --update
+ ```
+ Install Ubuntu.
 
  ```console
  wsl --install
@@ -65,7 +71,7 @@ If all is well type
 
 Simply go to
 
-https://docs.docker.com/desktop/install/windows-install/
+[Installation Instructions](https://docs.docker.com/desktop/install/windows-install/)
 
 and install the software. Docker will then ask you to restart your PC to complete installation. 
 
@@ -83,7 +89,20 @@ Now you will need to configure Docker desktop. Go to Settings and select Resourc
 
 ![Alt text](/images/image-10.png)
 
-Next we need to upgrade the shared memory allocation. Select Docker engine and edit the conguration file as follows.
+Next we need to upgrade the shared memory allocation. Select Docker engine and edit the json conguration file as follows.
+
+```json
+{
+  "builder": {
+    "gc": {
+      "defaultKeepStorage": "20GB",
+      "enabled": true
+    }
+  },
+  "default-shm-size": "2g",
+  "experimental": false
+}
+```
 
 ![Alt text](/images/image-11.png)
 
@@ -108,9 +127,7 @@ First open Ubuntu from the windows command prompt by typing
 
  ![Alt text](/images/image-12.png)
 
- Now copy the commands to install Nvidia Container Toolkit from 
-
- https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
+ Now copy the commands to install Nvidia Container Toolkit from the [Nvidia Installation Instructions](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
 
 
  
@@ -142,7 +159,7 @@ First open Ubuntu from the windows command prompt by typing
  ```
  Make sure you have visual studio code (or pycharm) installed. 
 
- If not fetch from https://code.visualstudio.com/download .
+ If not fetch from Visual Code from [here](https://code.visualstudio.com/download).
 
  Open Visual Studio Code 
 
@@ -162,7 +179,6 @@ Click on Run All at the top of the screen.  It will then ask you to choose a ker
 First it will fetch one bird image and one forest image from the internet.  Next it will download 200 birds and 200 non-birds to build a training set which should take about 7 minutes. After some clean up steps, the notebook will run deep-learning code to train a RESNET-18 classifier network.  All the learning is in vision learner. Note the graphics which shows you the learning progress. We are running 3 epochs and 6 batches per epoch. You will likely see that the error rates are very low approaching 0.  
 
 Training will take a few minutes using the CPU only which is the default (only 1 minute on our lab machines).  Finally, the notebook will check the original bird image to see if it is a bird.  Pretty cool, huh.
-
 
 Next we will run the same example using the GPU instead of the CPU. 
 
