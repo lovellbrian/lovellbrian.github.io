@@ -20,7 +20,7 @@ First check that Windows Subsystem for Linux is ticked in Windows Features as pe
 
 Now open a command window (cmd) in administrator mode and install wsl.  Then install the Ubuntu-22.04 distribution with the following instructions based on these [Microsoft Instructions](https://learn.microsoft.com/en-us/windows/wsl/install).
 
-Update to latest wsl version. You must use WSL version 2.
+Update to the latest wsl version. You must use WSL version 2.
 
 ```console
  wsl --update
@@ -50,7 +50,7 @@ Select a Linux username and password.  I suggest you use your UQ credentials.
  
 ![Alt text](/images/image-3.png)
 
-You now have a Linux machine that you can access just like an app on your windows machine.  Just type wsl to enter linux and exit to go back to windows. Alternatively, Access Ubuntu directly from the recently added applications. It is best to pin Ubuntu to the Taskbar. 
+You now have a Linux machine that you can access just like an app on your windows machine.  Just type wsl to enter linux and exit to go back to windows. Alternatively, access Ubuntu directly from the recently added applications. It is best to pin Ubuntu to the Taskbar for easy access. 
 
 ![Alt text](/images/image-4.png)
 
@@ -59,7 +59,7 @@ If all is well type
  wsl -l -v
  ```
 
- and you should see the following.  The * indicates the default distribution is Ubuntu-22.04 and it is running WSL version 2.   If the default distrubtion is not Ubuntu-22.04, then use this command in windows console.
+ and you should see the following.  The * indicates the default distribution is Ubuntu-22.04 and it is running WSL version 2.   If the default distrubtion is not Ubuntu-22.04, then use this command in windows console to set the default distribution. 
 
  ```console
  wsl --setdefault Ubuntu-22.04
@@ -69,11 +69,11 @@ If all is well type
 
 # Now we Install Docker Desktop for Windows
 
-Simply go to
+Simply follow the
 
-[Installation Instructions](https://docs.docker.com/desktop/install/windows-install/)
+[Docker Installation Instructions](https://docs.docker.com/desktop/install/windows-install/)
 
-and install the software. Do not attempt to install form the Microsoft store. Docker will then ask you to restart your PC to complete installation. 
+and install the software. Do not attempt to install from the Microsoft store. Docker will  ask you to restart your PC to complete installation. 
 
 ![Alt text](/images/image-5.png)
 
@@ -85,7 +85,7 @@ Once you have done that, you are in.
 
 ![Alt text](/images/image-8.png)
 
-Now you will need to configure Docker desktop. Go to Settings and select Resources/WSl integration. make sure the sliders are set as follows to allow Docker to integrate to both the Ubuntu images. 
+Now you will need to configure Docker desktop. Go to Settings and select Resources/WSL integration. Make sure the sliders are set as follows to allow Docker to integrate to both the Ubuntu images. 
 
 ![Alt text](/images/image-10.png)
 
@@ -151,23 +151,23 @@ First open Ubuntu from the windows command prompt by typing
 
  # Open fastai Deep Learning Software in Container
 
- Now get back to a windows console window and clone my repository to H: drive.  Do not use Google Drive or H Drive or you will have mount permission difficulties. 
+ Now open windows console and clone my fastai repository to H: drive.  Do not use Google Drive or H Drive or you will have mount permission difficulties. 
 
  ```console
  c:
  git clone https://github.com/lovellbrian/course22
  ```
- Make sure you have visual studio code (or pycharm) installed. 
+ Make sure you have Visual Studio Code (or pycharm) installed. 
 
- If not fetch from Visual Code from [here](https://code.visualstudio.com/download).
+ If not fetch from Visual Studio Code from [here](https://code.visualstudio.com/download).
 
- Open Visual Studio Code 
+ Open VS Code 
 
  ![Alt text](/images/image-13.png)
 
-Open your cloned folder H:course22.
+Then open your cloned folder H:course22 in VS Code using Open Folder.
 
-VS Code may ask a few questions such as asking to install the devcontainers extension. Accept the suggestions. Eventually it will ask you permission to Reopen in a Container.  This will now create a new container to run your code.  Please click on Show Log to see the software being installed. 
+VS Code may ask a few questions such as asking to install the devcontainers extension. Accept the suggestions. Eventually it will ask you for permission to Reopen in a Container.  This will now create a new container to run your code.  Please click on Show Log to see the software being installed. 
 
 ![Alt text](/images/image-16.png)
 
@@ -176,9 +176,9 @@ Enjoy the scrolling text or go make yourself a coffee.  This will take 15 or mor
 Now open the Notebook *00-is-it-a-bird-creating-a-model-from-your-own-data.ipynb*.
 Click on Run All at the top of the screen.  It will then ask you to choose a kernel source.  Select Python Enviroments and the recommended version of Python.  Now the notebook should be running. 
 
-First it will fetch one bird image and one forest image from the internet.  Next it will download 200 birds and 200 non-birds to build a training set which should take about 7 minutes. After some clean up steps, the notebook will run deep-learning code to train a RESNET-18 classifier network.  All the learning is in vision learner. Note the graphics which shows you the learning progress. We are running 3 epochs and 6 batches per epoch. You will likely see that the error rates are very low approaching 0.  
+First, it will fetch one bird image and one forest image from the internet.  Next it will download 200 birds and 200 non-birds to build a training set which should take about 7 minutes. After some clean up steps, the notebook will run deep-learning code to train a RESNET-18 classifier network.  All the learning is perfomed in vision learner. Note the graphics which shows you the learning progress. We are running 3 epochs and 6 batches per epoch. You will likely see that the error rates are very low approaching 0.  
 
-Training will take a few minutes using the CPU only which is the default (only 1 minute on our lab machines).  Finally, the notebook will check the original bird image to see if it is a bird.  Pretty cool, huh.
+Training will take several minutes using the CPU only which is the default (less than 1 minute on our lab machine GPUs).  Finally, the notebook will check the original bird image to see if it is a bird.  Pretty cool, huh.
 
 Next we will run the same example using the GPU instead of the CPU. 
 
