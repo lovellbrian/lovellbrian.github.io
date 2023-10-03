@@ -34,19 +34,19 @@ https://learn.microsoft.com/en-us/windows/wsl/install
 
  This will take a few minutes and you see the following when done.
 
- ![Alt text](image-1.png)
+ ![Alt text](/images/image-1.png)
 
 The console will open a Linux window as per below.
 
-![Alt text](image-2.png)
+![Alt text](/images/image-2.png)
 
 Select a Linux username and password.  I suggest you use your UQ credentials. 
  
-![Alt text](image-3.png)
+![Alt text](/images/image-3.png)
 
 You now have a Linux machine that you can access just like an app on your windows machine.  Just type wsl to enter linux and exit to go back to windows. Alternatively, Access Ubuntu directly from the recently added applications. It is best to pin Ubuntu to the Taskbar. 
 
-![Alt text](image-4.png)
+![Alt text](/images/image-4.png)
 
 If all is well type 
 ```console
@@ -55,7 +55,7 @@ If all is well type
 
  and you should see the following.  the * indicates the default distribution is Ubuntu-22.04 and it is running WSL version 2.
 
-![Alt text](image-9.png)
+![Alt text](/images/image-9.png)
 
 # Now we Install Docker Desktop for Windows
 
@@ -65,23 +65,23 @@ https://docs.docker.com/desktop/install/windows-install/
 
 and install the software. Docker will then ask you to restart your PC to complete installation. 
 
-![Alt text](image-5.png)
+![Alt text](/images/image-5.png)
 
 Next accept the Docker subscription agreement and Docker Desktop will open and ask you to setup or sign into your account.
 
-![Alt text](image-6.png)
+![Alt text](/images/image-6.png)
 
 Once you have done that, you are in.
 
-![Alt text](image-8.png)
+![Alt text](/images/image-8.png)
 
 Now you will need to configure Docker desktop. Go to Settings and select Resources/WSl integration. make sure the sliders are set as follows to allow Docker to integrate to both the Ubuntu images. 
 
-![Alt text](image-10.png)
+![Alt text](/images/image-10.png)
 
 Next we need to upgrade the shared memory allocation. Select Docker engine and edit the conguration file as follows.
 
-![Alt text](image-11.png)
+![Alt text](/images/image-11.png)
 
 Then click Apply and Restart.
 
@@ -102,7 +102,7 @@ First open Ubuntu from the windows command prompt by typing
  lsb_release -a
  ```
 
- ![Alt text](image-12.png)
+ ![Alt text](/images/image-12.png)
 
  Now copy the commands to install Nvidia Container Toolkit from 
 
@@ -142,13 +142,13 @@ First open Ubuntu from the windows command prompt by typing
 
  Open Visual Studio Code 
 
- ![Alt text](image-13.png)
+ ![Alt text](/images/image-13.png)
 
 Open your cloned folder H:course22.
 
 VS Code may ask a few questions such as asking to install the devcontainers extension. Accept the suggestions. Eventually it will ask you permission to Reopen in a Container.  This will now create a new container to run your code.  Please click on Show Log to see the software being installed. 
 
-![Alt text](image-16.png)
+![Alt text](/images/image-16.png)
 
 Enjoy the scrolling text or go make yourself a coffee.  This will take 15 or more minutes on the first run.  The next run will be a few seconds. 
 
@@ -166,4 +166,4 @@ All we need to do is to change the files in .devcontainer so they are the same a
 
 At the bottom left of the screen, you will see the word master.  Click on this and select the gpu branch.  The master and the cpu branch should be identical. Now select View/Command Palette and select Dev Containers: Rebuid and Reopen in Container.  This will load the GPU Container which will take a few minutes once again.  Time for your next coffee -  I'm grabbing one now. 
 
-![Alt text](image-17.png)
+![Alt text](/images/image-17.png)
