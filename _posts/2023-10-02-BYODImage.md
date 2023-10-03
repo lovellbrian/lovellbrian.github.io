@@ -101,7 +101,7 @@ First open Ubuntu from the windows command prompt by typing
  lsb_release -a
  ```
 
- ![Alt text](image-12.png)
+ ![Alt text](./_posts/image-12.png)
 
  Now copy the commands to install Nvidia Container Toolkit from 
 
@@ -118,9 +118,11 @@ First open Ubuntu from the windows command prompt by typing
     sudo apt-get update
  
  ```
+
  ```console
  sudo apt-get install -y nvidia-container-toolkit
  ```
+
  ```console
  sudo nvidia-ctk runtime configure --runtime=docker
  ```
