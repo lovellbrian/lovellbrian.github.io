@@ -73,7 +73,7 @@ Simply go to
 
 [Installation Instructions](https://docs.docker.com/desktop/install/windows-install/)
 
-and install the software. Docker will then ask you to restart your PC to complete installation. 
+and install the software. Do not attempt to install form the Microsoft store. Docker will then ask you to restart your PC to complete installation. 
 
 ![Alt text](/images/image-5.png)
 
@@ -134,7 +134,7 @@ First open Ubuntu from the windows command prompt by typing
  ```console
  curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
   && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
-    sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g\' | \
+    sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
     sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list \
   && \
     sudo apt-get update
