@@ -24,9 +24,9 @@ https://learn.microsoft.com/en-us/windows/wsl/install
  ```console
  wsl --install
  ```
- It will ask for a Linux username and password. I suggest you use your UQ credentials. 
+ If this command fails, you may already have Ubuntu installed. If so, skip to the next command. If it asks for a Linux username and password, I suggest you use your UQ credentials. 
 
- Then
+Now install Ubuntu-22.04.
 
  ```console
  wsl --install --distribution Ubuntu-22.04
@@ -53,7 +53,11 @@ If all is well type
  wsl -l -v
  ```
 
- and you should see the following.  the * indicates the default distribution is Ubuntu-22.04 and it is running WSL version 2.
+ and you should see the following.  The * indicates the default distribution is Ubuntu-22.04 and it is running WSL version 2.   If the default distrubtion is not Ubuntu-22.04, then use this command in windows console.
+
+ ```console
+ wsl --setdefault Ubuntu-22.04
+ ```
 
 ![Alt text](/images/image-9.png)
 
