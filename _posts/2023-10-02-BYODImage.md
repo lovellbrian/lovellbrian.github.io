@@ -16,10 +16,11 @@ First we need to make some changes to our Windows host.  There are only three so
 
 First check that Windows Subsystem for Linux is ticked in Windows Features as per below.
 
-![Alt text](/posts/image.png)
+![Alt text](/_posts/image.png)
 
 Now open a command window (cmd) in administrator mode and install wsl.  Then install the Ubuntu-22.04 distribution with the following instructions.
-https://learn.microsoft.com/en-us/windows/wsl/instal
+https://learn.microsoft.com/en-us/windows/wsl/install
+
  ```console
  wsl --install
  ```
