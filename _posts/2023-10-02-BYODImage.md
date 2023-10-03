@@ -16,7 +16,7 @@ First we need to make some changes to our Windows host.  There are only three so
 
 First check that Windows Subsystem for Linux is ticked in Windows Features as per below.
 
-![Alt text](image.png)
+![Alt text](/posts/image.png)
 
 Now open a command window (cmd) in administrator mode and install wsl.  Then install the Ubuntu-22.04 distribution with the following instructions.
 https://learn.microsoft.com/en-us/windows/wsl/instal
@@ -101,7 +101,7 @@ First open Ubuntu from the windows command prompt by typing
  lsb_release -a
  ```
 
- ![Alt text](./_posts/image-12.png)
+ ![Alt text](image-12.png)
 
  Now copy the commands to install Nvidia Container Toolkit from 
 
