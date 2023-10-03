@@ -2,7 +2,7 @@
 
 I have been working to make Deep Learning Accessible on Windows Machines by providing a Linux Docker Image on top of WSL Linux and connecting to the GPU.
 
-I am currently seeting up a Lab Machine with an RTX2080 which is a pretty good GPU.
+I am currently setting up a Lab Machine with an RTX2080 which is a pretty good GPU.
 
 So here are the steps to getting this up and running.
 
@@ -46,4 +46,17 @@ Simply go to
 
 https://docs.docker.com/desktop/install/windows-install/
 
-and install the software.
+and install the software. Docker will then ask you to restart your PC to complete installation. 
+
+![Alt text](image-5.png)
+
+Next accept the Docker subscription agreement and Docker Desktop will open and ask you to setup or sign into your account.
+
+![Alt text](image-6.png)
+
+Once you have done that, you are in.
+
+![Alt text](image-7.png)
+
+
+
