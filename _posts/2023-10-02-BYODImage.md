@@ -12,7 +12,7 @@ First we need to make some changes to our Windows host.  There are only three so
 2. Docker Desktop for Windows
 3. Nvidia Container Toolkit installed in the Ubuntu WSL image, not windows. [Only required if you have a GPU]
 
-## So Let`s Get Started on WSL
+## So Let's Get Started on WSL
 
 First check that Windows Subsystem for Linux is ticked in Windows Features as per below.
 
