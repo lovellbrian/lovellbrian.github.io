@@ -1,16 +1,18 @@
-# How to Run Deep Learning on a Windows PC with Devcontainers
+# How to Run Deep Learning on a PC Running Windows, MacOS, or Linux with Devcontainers
 
 I have been working to make Deep Learning Accessible on Windows Machines by providing a Linux Docker Image on top of WSL Linux and connecting to the GPU.
 
-I am currently setting up a Lab Machine with an RTX2080 which is a pretty good GPU.
+I am currently setting up a UQ Lab Machine with an RTX2080 which is a pretty good GPU although the memory is a bit small. 
 
-So here are the steps to getting this up and running.
+So here are the steps to getting this system up and running.
 
 First we need to make some changes to our Windows host.  There are only three software tools we need to install.
 
 1. Windows Subsystem for Linux with a Ubuntu image.
 2. Docker Desktop for Windows
-3. Nvidia Container Toolkit installed in the Ubuntu WSL image, not windows. [Only required if you have a GPU]
+3. Nvidia Container Toolkit installed in the Ubuntu WSL image, not Windows. [Only required if you have a GPU]
+
+Note that if you are running on Linux or a Mac, you should already have the Linux Kernel installed, so you may simply need to install docker.  If required, also install the Nvidia Container Toolkit to allow GPU access from the container.
 
 ## So Let's Get Started on WSL
 
@@ -36,23 +38,23 @@ Now as a first step, let`s update WSL to the latest version.
 
 ```console
  wsl --update
- ```
+```
  Install WSL and Ubuntu.
 
- ```console
+```console
  wsl --install
- ```
- If this command fails, you may already have Ubuntu installed. If so, skip to the next command. If it asks for a Linux username and password, I suggest you use your UQ credentials. 
+```
+If this command fails, you may already have Ubuntu installed. If so, skip to the next command. If it asks for a Linux username and password, I suggest you use your UQ credentials. 
 
 Now install Ubuntu-22.04.
 
- ```console
+```console
  wsl --install --distribution Ubuntu-22.04
- ```
+```
 
- This will take a few minutes and you see the following when done.
+This will take a few minutes and you see the following when done.
 
- ![Alt text](/images/image-1.png)
+![Alt text](/images/image-1.png)
 
 The console will open a Linux window as per below.
 
@@ -69,13 +71,13 @@ You now have a Linux machine that you can access just like an app on your window
 If all is well type 
 ```console
  wsl -l -v
- ```
+```
 
- and you should see the following.  The * indicates the default distribution is Ubuntu-22.04 and it is running WSL version 2.   If the default distrubtion is not Ubuntu-22.04, then use this command in windows console to set the default distribution. 
+and you should see the following.  The * indicates the default distribution is Ubuntu-22.04 and it is running WSL version 2.   If the default distrubtion is not Ubuntu-22.04, then use this command in windows console to set the default distribution. 
 
- ```console
- wsl --setdefault Ubuntu-22.04
- ```
+```console
+wsl --setdefault Ubuntu-22.04
+```
 
 ![Alt text](/images/image-9.png)
 
@@ -131,51 +133,51 @@ First open Ubuntu from the windows command prompt by typing
  wsl
 ```
 
- You can check that you have opened Ubuntu-22.04 by using the lsb_release command.
+You can check that you have opened Ubuntu-22.04 by using the lsb_release command.
 
 ```console
- lsb_release -a
+lsb_release -a
 ```
 
- ![Alt text](/images/image-12.png)
+![Alt text](/images/image-12.png)
 
- Now copy the commands to install Nvidia Container Toolkit from the [Nvidia Installation Instructions](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
+Now copy the commands to install Nvidia Container Toolkit from the [Nvidia Installation Instructions](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
 
 
- 
-```console
- curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
-  && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
-    sed `s#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g` | \
-    sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list \
-  && \
-    sudo apt-get update 
-```
 
 ```console
- sudo apt-get install -y nvidia-container-toolkit
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+&& curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+  sed `s#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g`| \
+  sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list \
+&& \
+  sudo apt-get update
+
 ```
 
 ```console
- sudo nvidia-ctk runtime configure --runtime=docker
+sudo apt-get install -y nvidia-container-toolkit
 ```
-
- # Open fastai Deep Learning Software from Github in Container
-
- Now open the windows console and clone my fastai repository to C: drive.  Do not use Google Drive or H Drive or you will have mount permission difficulties. 
 
 ```console
- c:
- git clone https://github.com/lovellbrian/course22
+sudo nvidia-ctk runtime configure --runtime=docker
 ```
 
- Make sure you have Visual Studio Code (or pycharm) installed. 
+# Open fastai Deep Learning Software from Github in Container
 
- If not fetch from Visual Studio Code from [here](https://code.visualstudio.com/download).
+Now open the windows console and clone the fastai repository to C: drive.  Do not use Google Drive or H Drive or you will have mount permission difficulties. This repository contains Jeremy Howard's fantastic fastai course delivered at UQ in 2022.
 
- Open VS Code 
+```console
+c:
+git clone https://github.com/lovellbrian/course22
+```
+Make sure you have Visual Studio Code (or pycharm) installed. 
 
- ![Alt text](/images/image-13.png)
+If not fetch from Visual Studio Code from [here](https://code.visualstudio.com/download).
+
+Open VS Code 
+
+![Alt text](/images/image-13.png)
 
 Then open your cloned folder H:course22 in VS Code using `Open Folder.`
 
@@ -197,14 +199,13 @@ Next we will run the same example using the GPU instead of the CPU. Now to perfo
 ```console
 nvidia-smi
 ```
-
 This will give you an output like this on our lab machines.  This shows that we have one NVIDIA GeForce RTX 2080 GPU Card with 8Gb of Memory in slot 0.
 
 ![Alt text](/images/image-18.png)
 
 All we need to do is to change the files in .devcontainer so they are the same as .devcontainerGPU.   There are a number of ways to do this, but a convenient way is to simply swap to the gpu branch of the repository. 
 
-At the bottom left of the screen, you will see the word `master.`  Click on this and select the gpu branch of the repository.  The master and the cpu branch should be identical, but the content of .devcontainer is different for the gpu branch. Now select View/Command Palette and select Dev Containers: `Rebuild and Reopen in Container.`  This will load the GPU Container which will take a few minutes once again.  Time for your next coffee -  I'm grabbing one now. 
+At the bottom left of the screen, you will see the word `master.`  Click on this and select the gpu branch of the repository.  The master and the cpu branch should be identical, but the content of .devcontainer is different for the gpu branch. Now select View/Command Palette and select Dev Containers: `Rebuild and Reopen in Container.`  This will load the GPU Container which will take a few minutes once again.  Time for your next coffee -  I`m grabbing one now. 
 
 ![Alt text](/images/image-17.png)
 
@@ -215,11 +216,11 @@ nvtop
 ```
 Notice how the GPU is working when the training code starts.
 
-![Alt text](/images/image-19.png)
+![Alt text](/images/images/image-19.png)
 
-Why is the GPU only showing about 50% load? Does this mean that it does not have enough work to do?  So how do we give it more work? Perhaps we need to increase the batch size. 
+Why is the GPU only showing about 50% load? This means it does not have enough work to do.  So how do we give it more work? Perhaps we need to increase the batch size. 
 
-Try increasing the batch size to speed up your learning (not telling you how, but you need to insert bs=128 somewhere). The default batch size is 64.  Make sure you have upgraded your shm memory in Docker to avoid crashing. Try batch sizes of, say, 16, 32, 64, 128, and 256. Here is the GPU graph for bs=256.  Which batch size gives the fastest learning? Please try to explain what is going on.
+Try increasing the batch size to speed up your learning (not telling how, but you need to insert bs=128 somewhere). The default batch size is 64.  Make sure you have upgraded your shm memory in Docker to avoid crashing. Try batch sizes of, say, 16, 32, 64, 128, and 256. Here is 256.  Which gives the fastest learning. Please try to explain what is going on.
 
 ![Alt text](/images/image-20.png)
 
