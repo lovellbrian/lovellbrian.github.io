@@ -129,13 +129,13 @@ First open Ubuntu from the windows command prompt by typing
 
 ```console
  wsl
- ```
+```
 
  You can check that you have opened Ubuntu-22.04 by using the lsb_release command.
 
- ```console
+```console
  lsb_release -a
- ```
+```
 
  ![Alt text](/images/image-12.png)
 
@@ -143,32 +143,32 @@ First open Ubuntu from the windows command prompt by typing
 
 
  
- ```console
+```console
  curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
   && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
     sed `s#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g` | \
     sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list \
   && \
-    sudo apt-get update
- 
- ```
+    sudo apt-get update 
+```
 
- ```console
+```console
  sudo apt-get install -y nvidia-container-toolkit
- ```
+```
 
- ```console
+```console
  sudo nvidia-ctk runtime configure --runtime=docker
- ```
+```
 
  # Open fastai Deep Learning Software from Github in Container
 
  Now open the windows console and clone my fastai repository to C: drive.  Do not use Google Drive or H Drive or you will have mount permission difficulties. 
 
- ```console
+```console
  c:
  git clone https://github.com/lovellbrian/course22
- ```
+```
+
  Make sure you have Visual Studio Code (or pycharm) installed. 
 
  If not fetch from Visual Studio Code from [here](https://code.visualstudio.com/download).
@@ -197,10 +197,10 @@ Next we will run the same example using the GPU instead of the CPU. Now to perfo
 ```console
 nvidia-smi
 ```
+
 This will give you an output like this on our lab machines.  This shows that we have one NVIDIA GeForce RTX 2080 GPU Card with 8Gb of Memory in slot 0.
 
 ![Alt text](/images/image-18.png)
-
 
 All we need to do is to change the files in .devcontainer so they are the same as .devcontainerGPU.   There are a number of ways to do this, but a convenient way is to simply swap to the gpu branch of the repository. 
 
@@ -219,7 +219,7 @@ Notice how the GPU is working when the training code starts.
 
 Why is the GPU only showing about 50% load? This means it does not have enough work to do.  So how do we give it more work? Perhaps we need to increase the batch size. 
 
- Try increasing the batch size to speed up your learning (not telling how, but you need to insert bs=128 somewhere). The default batch size is 64.  Make sure you have upgraded your shm memory in Docker to avoid crashing. Try batch sizes of, say, 16, 32, 64, 128, and 256. Here is 256.  Which gives the fastest learning. Please try to explain what is going on.
+Try increasing the batch size to speed up your learning (not telling how, but you need to insert bs=128 somewhere). The default batch size is 64.  Make sure you have upgraded your shm memory in Docker to avoid crashing. Try batch sizes of, say, 16, 32, 64, 128, and 256. Here is 256.  Which gives the fastest learning. Please try to explain what is going on.
 
 ![Alt text](/images/image-20.png)
 
