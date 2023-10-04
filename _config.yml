@@ -50,3 +50,10 @@ kramdown:
   auto_ids: true
   hard_wrap: false
   syntax_highlighter: rouge
+
+copyCodeSnippet:
+  enable: true
+  buttonText: Copy
+  tooltipText: Copy the code snippet
+  toasterText: Copied
+  toasterDuration: 1500
