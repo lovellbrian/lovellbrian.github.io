@@ -10,7 +10,7 @@ First we need to make some changes to our Windows host.  There are only three so
 
 1. Windows Subsystem for Linux with a Ubuntu image.
 2. Docker Desktop for Windows
-3. Nvidia Container Toolkit installed in the Ubuntu WSL image, not windows. 
+3. Nvidia Container Toolkit installed in the Ubuntu WSL image, not windows. [Only required if you have a GPU]
 
 ## So Let's Get Started on WSL
 
@@ -20,12 +20,24 @@ First check that Windows Subsystem for Linux is ticked in Windows Features as pe
 
 Now open a command window (cmd) in administrator mode and install wsl.  Then install the Ubuntu-22.04 distribution with the following instructions based on these [Microsoft Instructions](https://learn.microsoft.com/en-us/windows/wsl/install).
 
-Update to the latest wsl version. You must use WSL version 2.
+You must use WSL version 2.  The following instuction will ensure you are using WSL Version 2 for all new projects.
+
+```console
+wsl –set-default-version 2 
+```
+If a distribution is on WSL 1, you can convert it as follows:
+
+```console
+wsl --set-version <Distribution> 2 
+```
+where distribution could be Ubuntu-22.04, say.
+
+Now as a first step, let's update WSL to the latest version. 
 
 ```console
  wsl --update
  ```
- Install Ubuntu.
+ Install WSL and Ubuntu.
 
  ```console
  wsl --install
@@ -85,11 +97,11 @@ Once you have done that, you are in.
 
 ![Alt text](/images/image-8.png)
 
-Now you will need to configure Docker desktop. Go to Settings and select Resources/WSL integration. Make sure the sliders are set as follows to allow Docker to integrate to both the Ubuntu images. 
+Now you will need to configure Docker desktop. Go to Settings and select **Resources/WSL integration.** Make sure the sliders are set as follows to allow Docker to integrate to both the Ubuntu images. Check these sliders occasionally as they sometimes get reset. 
 
 ![Alt text](/images/image-10.png)
 
-Next we need to upgrade the shared memory allocation. Select Docker engine and edit the json conguration file as follows.
+Next we need to upgrade the shared memory allocation. Select **Docker Engine** and edit the json conguration file as follows.
 
 ```json
 {
@@ -106,12 +118,12 @@ Next we need to upgrade the shared memory allocation. Select Docker engine and e
 
 ![Alt text](/images/image-11.png)
 
-Then click Apply and Restart.
+Then click **Apply and Restart.**
 
 
 # Install Nvidia Container Toolkit in Ubuntu 22.04 WSL
 
-Finally we need to install Nvidia Container toolkit in Ubuntu.  This allows our containers to access the GPU. 
+Finally, if we have a GPU we need to install Nvidia Container toolkit in Ubuntu.  This allows our containers to access the GPU hardware.
 
 First open Ubuntu from the windows command prompt by typing
 
@@ -149,9 +161,9 @@ First open Ubuntu from the windows command prompt by typing
  sudo nvidia-ctk runtime configure --runtime=docker
  ```
 
- # Open fastai Deep Learning Software in Container
+ # Open fastai Deep Learning Software from Github in Container
 
- Now open windows console and clone my fastai repository to H: drive.  Do not use Google Drive or H Drive or you will have mount permission difficulties. 
+ Now open the windows console and clone my fastai repository to C: drive.  Do not use Google Drive or H Drive or you will have mount permission difficulties. 
 
  ```console
  c:
@@ -165,22 +177,30 @@ First open Ubuntu from the windows command prompt by typing
 
  ![Alt text](/images/image-13.png)
 
-Then open your cloned folder H:course22 in VS Code using Open Folder.
+Then open your cloned folder H:course22 in VS Code using **Open Folder.**
 
-VS Code may ask a few questions such as asking to install the devcontainers extension. Accept the suggestions. Eventually it will ask you for permission to Reopen in a Container.  This will now create a new container to run your code.  Please click on Show Log to see the software being installed. 
+VS Code may ask a few questions such as asking to install the devcontainers extension. Accept the suggestions. Eventually, it will ask you for permission to **Reopen in a Container.**  This will now create a new container to run your code.  Please click on **Show Log** to see the software being installed. 
 
 ![Alt text](/images/image-16.png)
 
 Enjoy the scrolling text or go make yourself a coffee.  This will take 15 or more minutes on the first run.  The next run will be a few seconds. 
 
-Now open the Notebook *00-is-it-a-bird-creating-a-model-from-your-own-data.ipynb*.
-Click on Run All at the top of the screen.  It will then ask you to choose a kernel source.  Select Python Enviroments and the recommended version of Python.  Now the notebook should be running. 
+Now open the Notebook **00-is-it-a-bird-creating-a-model-from-your-own-data.ipynb.**
+Click on **Run All** at the top of the screen.  It will then ask you to choose a kernel source.  Select Python Environments and the recommended version of Python.  Now the notebook should be running. 
 
-First, it will fetch one bird image and one forest image from the internet.  Next it will download 200 birds and 200 non-birds to build a training set which should take about 7 minutes. After some clean up steps, the notebook will run deep-learning code to train a RESNET-18 classifier network.  All the learning is perfomed in vision learner. Note the graphics which shows you the learning progress. We are running 3 epochs and 6 batches per epoch. You will likely see that the error rates are very low approaching 0.  
+First, the notebook will fetch one bird image and rhen one forest image from the internet.  Next it will download 200 birds and 200 non-birds to build a training set which should take about 7 minutes. After some clean up steps, the notebook will run deep-learning code to train a RESNET-18 classifier network.  All learning is perfomed in vision learner. Note the graphics which shows you the learning progress. We are running 3 epochs and 6 batches per epoch. You will likely see that the error rates are very low approaching 0.  
 
 Training will take several minutes using the CPU only which is the default (less than 1 minute on our lab machine GPUs).  Finally, the notebook will check the original bird image to see if it is a bird.  Pretty cool, huh.
 
-Next we will run the same example using the GPU instead of the CPU. 
+Next we will run the same example using the GPU instead of the CPU. Now to perform this step you will need access to a PC with GPU installed. An easy way to check for this is to run the command.
+
+```console
+nvidia-smi
+```
+This will give you an output like this on our lab machines. 
+
+![Alt text](/images/image-18.png)
+
 
 All we need to do is to change the files in .devcontainer so they are the same as .devcontainerGPU.   There are a number of ways to do this, but a convenient way is to simply swap to the gpu branch of the repository. 
 
