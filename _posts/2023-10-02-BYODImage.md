@@ -217,15 +217,15 @@ Notice how the GPU is working when the training code starts.
 
 ![Alt text](/images/image-19.png)
 
-Why is the GPU only showing about 50% load? This means it does not have enough work to do.  So how do we give it more work? Perhaps we need to increase the batch size. 
+Why is the GPU only showing about 50% load? Does this mean that it does not have enough work to do?  So how do we give it more work? Perhaps we need to increase the batch size. 
 
-Try increasing the batch size to speed up your learning (not telling how, but you need to insert bs=128 somewhere). The default batch size is 64.  Make sure you have upgraded your shm memory in Docker to avoid crashing. Try batch sizes of, say, 16, 32, 64, 128, and 256. Here is 256.  Which gives the fastest learning. Please try to explain what is going on.
+Try increasing the batch size to speed up your learning (not telling you how, but you need to insert bs=128 somewhere). The default batch size is 64.  Make sure you have upgraded your shm memory in Docker to avoid crashing. Try batch sizes of, say, 16, 32, 64, 128, and 256. Here is the GPU graph for bs=256.  Which batch size gives the fastest learning? Please try to explain what is going on.
 
 ![Alt text](/images/image-20.png)
 
 Enjoy!
 
-Happy coding on your personal Linux Container. 
+Happy coding on your personal Linux GPU Container. 
 
 Brian
 ![Lovell Portrait](/images/Lovell_portrait_small.jpg "Brian Lovell")
