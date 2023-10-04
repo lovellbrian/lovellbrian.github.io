@@ -12,7 +12,7 @@ First we need to make some changes to our Windows host.  There are only three so
 2. Docker Desktop for Windows
 3. Nvidia Container Toolkit installed in the Ubuntu WSL image, not windows. [Only required if you have a GPU]
 
-## So Let's Get Started on WSL
+## So Let`s Get Started on WSL
 
 First check that Windows Subsystem for Linux is ticked in Windows Features as per below.
 
@@ -32,7 +32,7 @@ wsl --set-version <Distribution> 2
 ```
 where distribution could be Ubuntu-22.04, say.
 
-Now as a first step, let's update WSL to the latest version. 
+Now as a first step, let`s update WSL to the latest version. 
 
 ```console
  wsl --update
@@ -97,11 +97,11 @@ Once you have done that, you are in.
 
 ![Alt text](/images/image-8.png)
 
-Now you will need to configure Docker desktop. Go to Settings and select **Resources/WSL integration.** Make sure the sliders are set as follows to allow Docker to integrate to both the Ubuntu images. Check these sliders occasionally as they sometimes get reset. 
+Now you will need to configure Docker desktop. Go to Settings and select `Resources/WSL integration.` Make sure the sliders are set as follows to allow Docker to integrate to both the Ubuntu images. Check these sliders occasionally as they sometimes get reset. 
 
 ![Alt text](/images/image-10.png)
 
-Next we need to upgrade the shared memory allocation. Select **Docker Engine** and edit the json conguration file as follows.
+Next we need to upgrade the shared memory allocation. Select `Docker Engine` and edit the json conguration file as follows.
 
 ```json
 {
@@ -118,7 +118,7 @@ Next we need to upgrade the shared memory allocation. Select **Docker Engine** a
 
 ![Alt text](/images/image-11.png)
 
-Then click **Apply and Restart.**
+Then click `Apply and Restart.`
 
 
 # Install Nvidia Container Toolkit in Ubuntu 22.04 WSL
@@ -146,7 +146,7 @@ First open Ubuntu from the windows command prompt by typing
  ```console
  curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
   && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
-    sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+    sed `s#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g` | \
     sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list \
   && \
     sudo apt-get update
@@ -177,16 +177,16 @@ First open Ubuntu from the windows command prompt by typing
 
  ![Alt text](/images/image-13.png)
 
-Then open your cloned folder H:course22 in VS Code using **Open Folder.**
+Then open your cloned folder H:course22 in VS Code using `Open Folder.`
 
-VS Code may ask a few questions such as asking to install the devcontainers extension. Accept the suggestions. Eventually, it will ask you for permission to **Reopen in a Container.**  This will now create a new container to run your code.  Please click on **Show Log** to see the software being installed. 
+VS Code may ask a few questions such as asking to install the devcontainers extension. Accept the suggestions. Eventually, it will ask you for permission to `Reopen in a Container.`  This will now create a new container to run your code.  Please click on `Show Log` to see the software being installed. 
 
 ![Alt text](/images/image-16.png)
 
 Enjoy the scrolling text or go make yourself a coffee.  This will take 15 or more minutes on the first run.  The next run will be a few seconds. 
 
-Now open the Notebook **00-is-it-a-bird-creating-a-model-from-your-own-data.ipynb.**
-Click on **Run All** at the top of the screen.  It will then ask you to choose a kernel source.  Select Python Environments and the recommended version of Python.  Now the notebook should be running. 
+Now open the Notebook `00-is-it-a-bird-creating-a-model-from-your-own-data.ipynb.`
+Click on `Run All` at the top of the screen.  It will then ask you to choose a kernel source.  Select Python Environments and the recommended version of Python.  Now the notebook should be running. 
 
 First, the notebook will fetch one bird image and rhen one forest image from the internet.  Next it will download 200 birds and 200 non-birds to build a training set which should take about 7 minutes. After some clean up steps, the notebook will run deep-learning code to train a RESNET-18 classifier network.  All learning is perfomed in vision learner. Note the graphics which shows you the learning progress. We are running 3 epochs and 6 batches per epoch. You will likely see that the error rates are very low approaching 0.  
 
@@ -197,13 +197,35 @@ Next we will run the same example using the GPU instead of the CPU. Now to perfo
 ```console
 nvidia-smi
 ```
-This will give you an output like this on our lab machines. 
+This will give you an output like this on our lab machines.  This shows that we have one NVIDIA GeForce RTX 2080 GPU Card with 8Gb of Memory in slot 0.
 
 ![Alt text](/images/image-18.png)
 
 
 All we need to do is to change the files in .devcontainer so they are the same as .devcontainerGPU.   There are a number of ways to do this, but a convenient way is to simply swap to the gpu branch of the repository. 
 
-At the bottom left of the screen, you will see the word master.  Click on this and select the gpu branch.  The master and the cpu branch should be identical. Now select View/Command Palette and select Dev Containers: Rebuid and Reopen in Container.  This will load the GPU Container which will take a few minutes once again.  Time for your next coffee -  I'm grabbing one now. 
+At the bottom left of the screen, you will see the word `master.`  Click on this and select the gpu branch of the repository.  The master and the cpu branch should be identical, but the content of .devcontainer is different for the gpu branch. Now select View/Command Palette and select Dev Containers: `Rebuild and Reopen in Container.`  This will load the GPU Container which will take a few minutes once again.  Time for your next coffee -  I`m grabbing one now. 
 
 ![Alt text](/images/image-17.png)
+
+When we run with the gpu image the code is much faster as the GPU does most of the work. You can use the following command to monitor the GPU.
+
+```console
+nvtop
+```
+Notice how the GPU is working when the training code starts.
+
+![Alt text](/images/images/image-19.png)
+
+Why is the GPU only showing about 50% load? This means it does not have enough work to do.  So how do we give it more work? Perhaps we need to increase the batch size. 
+
+ Try increasing the batch size to speed up your learning (not telling how, but you need to insert bs=128 somewhere). The default batch size is 64.  Make sure you have upgraded your shm memory in Docker to avoid crashing. Try batch sizes of, say, 16, 32, 64, 128, and 256. Here is 256.  Which gives the fastest learning. Please try to explain what is going on.
+
+![Alt text](/images/image-20.png)
+
+Enjoy!
+
+Happy coding on your personal Linux Container. 
+
+Brian
+![Lovell Portrait](/images/Lovell_portrait_small.jpg "Brian Lovell")
