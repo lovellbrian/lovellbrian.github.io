@@ -63,7 +63,11 @@
 // .copy-code-button {
 //         display: block;
 //       }
-      
+
+.code-header{
+        align-items:right
+        }
+
 .copy-code-button {
         display: grid;
         grid-auto-flow: column;
