@@ -1,7 +1,7 @@
 // This assumes that you're using Rouge; if not, update the selector
 const codeBlocks = document.querySelectorAll('.code-header + .highlighter-rouge');
 const copyCodeButtons = document.querySelectorAll('.copy-code-button');
-codeBlocks.style.textAlign = 'right'; // Adjust the left margin to align the button
+// codeBlocks.style.textAlign = 'right'; // Adjust the left margin to align the button
 
 
 copyCodeButtons.forEach((copyCodeButton, index) => {
