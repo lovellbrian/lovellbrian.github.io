@@ -222,7 +222,7 @@ nvtop
 ```
 Notice how the GPU is working when the training code starts.
 
-![Alt text](/images/images/image-19.png)
+![Alt text](/images/image-19.png)
 
 Why is the GPU only showing about 50% load? This means it does not have enough work to do.  So how do we give it more work? Perhaps we need to increase the batch size. 
 
