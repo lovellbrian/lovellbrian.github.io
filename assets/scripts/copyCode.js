@@ -1,6 +1,8 @@
 // This assumes that you're using Rouge; if not, update the selector
 const codeBlocks = document.querySelectorAll('.code-header + .highlighter-rouge');
 const copyCodeButtons = document.querySelectorAll('.copy-code-button');
+codeBlocks.style.marginLeft = '50px'; // Adjust the left margin to align the button
+
 
 copyCodeButtons.forEach((copyCodeButton, index) => {
   const code = codeBlocks[index].innerText;
@@ -11,7 +13,7 @@ copyCodeButtons.forEach((copyCodeButton, index) => {
 
     // Update the button text visually
     const { innerText: originalText } = copyCodeButton;
-    copyCodeButton.innerText = 'Copied! ✔️';
+    copyCodeButton.innerText = '✔️Copied!';
 
     // (Optional) Toggle a class for styling the button
     copyCodeButton.classList.add('copied');
