@@ -27,13 +27,6 @@ You must use WSL version 2.  The following instuction will ensure you are using 
 ```console
 wsl –set-default-version 2 
 ```
-If a distribution is on WSL 1, you can convert it as follows:
-
-```console
-wsl --set-version <Distribution> 2 
-```
-where distribution could be Ubuntu-22.04, say.
-
 Now as a first step, let`s update WSL to the latest version. 
 
 ```console
@@ -64,7 +57,7 @@ Select a Linux username and password.  I suggest you use your UQ credentials.
  
 ![Alt text](/images/image-3.png)
 
-You now have a Linux machine that you can access just like an app on your windows machine.  Just type wsl to enter linux and exit to go back to windows. Alternatively, access Ubuntu directly from the recently added applications. It is best to pin Ubuntu to the Taskbar for easy access. 
+You now have a Linux machine that you can access just like an app on your windows machine.  Just type `wsl` to enter linux and `exit` to go back to Windows. Alternatively, access Ubuntu directly from the recently added applications. It is best to pin Ubuntu to the Taskbar for easy access. 
 
 ![Alt text](/images/image-4.png)
 
@@ -73,10 +66,15 @@ If all is well type
  wsl -l -v
 ```
 
-and you should see the following.  The * indicates the default distribution is Ubuntu-22.04 and it is running WSL version 2.   If the default distrubtion is not Ubuntu-22.04, then use this command in windows console to set the default distribution. 
+and you should see the following.  The * indicates the default distribution is Ubuntu-22.04 and it is running WSL version 2.   If the default distribution is not Ubuntu-22.04, then use this command in windows console to set the default distribution. 
 
 ```console
 wsl --setdefault Ubuntu-22.04
+```
+If a your Ubuntu distribution is on WSL 1 instead of 2, you can convert it as follows:
+
+```console
+wsl --set-version Ubuntu-22.04 2 
 ```
 
 ![Alt text](/images/image-9.png)
@@ -165,7 +163,7 @@ sudo nvidia-ctk runtime configure --runtime=docker
 
 # Open fastai Deep Learning Software from Github in Container
 
-Now open the windows console and clone the fastai repository to C: drive.  Do not use Google Drive or H Drive or you will have mount permission difficulties. This repository contains Jeremy Howard's fantastic fastai course delivered at UQ in 2022.
+Now open the windows console and clone the fastai repository to C drive, or another local disk.  Do not use Google Drive or H Drive (mounted) or you will have container mount permission difficulties later. This repository contains [Jeremy Howard's](https://en.wikipedia.org/wiki/Jeremy_Howard_(entrepreneur)) fantastic fastai course delivered at UQ in 2022.
 
 ```console
 c:
