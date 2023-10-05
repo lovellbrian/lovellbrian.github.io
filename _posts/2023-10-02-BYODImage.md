@@ -1,5 +1,7 @@
 # How to Run Deep Learning on a PC Running Windows, MacOS, or Linux with Devcontainers
 
+<script src="/assets/scripts/copyCode.js"></script>
+
 I have been working to make Deep Learning Accessible on Windows Machines by providing a Linux Docker Image on top of WSL Linux and connecting to the GPU.
 
 I am currently setting up a UQ Lab Machine with an RTX2080 which is a pretty good GPU although the memory is a bit small. 
