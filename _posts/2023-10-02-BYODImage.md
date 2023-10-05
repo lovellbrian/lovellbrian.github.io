@@ -10,7 +10,7 @@ First we need to make some changes to our Windows host.  There are only three so
 
 1. Windows Subsystem for Linux with a Ubuntu image.
 2. Docker Desktop for Windows
-3. Nvidia Container Toolkit installed in the Ubuntu WSL image, not Windows. [Only required if you have a GPU]
+3. Nvidia Container Toolkit installed in the Ubuntu WSL image, not Windows. \(only required if you have a GPU\)
 
 Note that if you are running on Linux or a Mac, you should already have the Linux Kernel installed, so you may simply need to install docker.  If required, also install the Nvidia Container Toolkit to allow GPU access from the container.
 
@@ -30,11 +30,13 @@ wsl –set-default-version 2
 ```
 Now as a first step, let`s update WSL to the latest version. 
 
+{% include codeHeader.html %}
 ```console
  wsl --update
 ```
  Install WSL and Ubuntu.
 
+{% include codeHeader.html %}
 ```console
  wsl --install
 ```
@@ -42,6 +44,7 @@ If this command fails, you may already have Ubuntu installed. If so, skip to the
 
 Now install Ubuntu-22.04.
 
+{% include codeHeader.html %}
 ```console
  wsl --install --distribution Ubuntu-22.04
 ```
@@ -63,17 +66,21 @@ You now have a Linux machine that you can access just like an app on your window
 ![Alt text](/images/image-4.png)
 
 If all is well type 
+
+{% include codeHeader.html %}
 ```console
  wsl -l -v
 ```
 
 and you should see the following.  The * indicates the default distribution is Ubuntu-22.04 and it is running WSL version 2.   If the default distribution is not Ubuntu-22.04, then use this command in windows console to set the default distribution. 
 
+{% include codeHeader.html %}
 ```console
 wsl --setdefault Ubuntu-22.04
 ```
 If a your Ubuntu distribution is on WSL 1 instead of 2, you can convert it as follows:
 
+{% include codeHeader.html %}
 ```console
 wsl --set-version Ubuntu-22.04 2 
 ```
