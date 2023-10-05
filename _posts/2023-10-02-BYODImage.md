@@ -111,6 +111,7 @@ Now you will need to configure Docker desktop. Go to Settings and select `Resour
 
 Next we need to upgrade the shared memory allocation. Select `Docker Engine` and edit the json conguration file as follows.
 
+{% include codeHeader.html %}
 ```json
 {
   "builder": {
@@ -135,12 +136,14 @@ Finally, if we have a GPU we need to install Nvidia Container toolkit in Ubuntu.
 
 First open Ubuntu from the windows command prompt by typing
 
+{% include codeHeader.html %}
 ```console
  wsl
 ```
 
 You can check that you have opened Ubuntu-22.04 by using the lsb_release command.
 
+{% include codeHeader.html %}
 ```console
 lsb_release -a
 ```
@@ -151,6 +154,7 @@ Now copy the commands to install Nvidia Container Toolkit from the [Nvidia Insta
 
 
 
+{% include codeHeader.html %}
 ```console
 curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
 && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
@@ -161,10 +165,12 @@ curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dear
 
 ```
 
+{% include codeHeader.html %}
 ```console
 sudo apt-get install -y nvidia-container-toolkit
 ```
 
+{% include codeHeader.html %}
 ```console
 sudo nvidia-ctk runtime configure --runtime=docker
 ```
@@ -173,6 +179,7 @@ sudo nvidia-ctk runtime configure --runtime=docker
 
 Now open the windows console and clone the fastai repository to C drive, or another local disk.  Do not use Google Drive or H Drive (mounted) or you will have container mount permission difficulties later. This repository contains [Jeremy Howard's](https://en.wikipedia.org/wiki/Jeremy_Howard_(entrepreneur)) fantastic fastai course delivered at UQ in 2022.
 
+{% include codeHeader.html %}
 ```console
 c:
 git clone https://github.com/lovellbrian/course22
@@ -202,6 +209,7 @@ Training will take several minutes using the CPU only which is the default (less
 
 Next we will run the same example using the GPU instead of the CPU. Now to perform this step you will need access to a PC with GPU installed. An easy way to check for this is to run the command.
 
+{% include codeHeader.html %}
 ```console
 nvidia-smi
 ```
@@ -217,6 +225,7 @@ At the bottom left of the screen, you will see the word `master.`  Click on this
 
 When we run with the gpu image the code is much faster as the GPU does most of the work. You can use the following command to monitor the GPU.
 
+{% include codeHeader.html %}
 ```console
 nvtop
 ```
