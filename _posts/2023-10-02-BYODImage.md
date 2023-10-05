@@ -24,6 +24,7 @@ Now open a command window (cmd) in administrator mode and install wsl.  Then ins
 
 You must use WSL version 2.  The following instuction will ensure you are using WSL Version 2 for all new projects.
 
+{% include codeHeader.html %}
 ```console
 wsl –set-default-version 2 
 ```
@@ -177,9 +178,9 @@ Open VS Code
 
 ![Alt text](/images/image-13.png)
 
-Then open your cloned folder H:course22 in VS Code using `Open Folder.`
+Then open your cloned folder C:course22 in VS Code using `Open Folder.`
 
-VS Code may ask a few questions such as asking to install the devcontainers extension. Accept the suggestions. Eventually, it will ask you for permission to `Reopen in a Container.`  This will now create a new container to run your code.  Please click on `Show Log` to see the software being installed. 
+VS Code may ask a few questions such as asking to install the devcontainers extension. Accept the suggestions. Eventually, it will ask you for permission to `Reopen in a Container.`  This will now create a new container to run your code.  Please click on `Show Log` to see the software being installed live. 
 
 ![Alt text](/images/image-16.png)
 
