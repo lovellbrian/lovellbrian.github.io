@@ -6,6 +6,4 @@ I am also experimenting with running a [full ecommerce Wordpress site](https://v
 
 ![Image of Brian Lovell](images/Lovell_portrait_small.jpg)
 
-<!-- Javascript goes here BL -->
-
-<script src="/assets/scripts/copyCode.js"> </script>
+<script src="/assets/scripts/copyCode.js" async> </script>
