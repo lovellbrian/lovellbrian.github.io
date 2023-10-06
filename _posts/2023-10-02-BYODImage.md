@@ -207,13 +207,13 @@ First, the notebook will fetch one bird image and rhen one forest image from the
 
 Training will take several minutes using the CPU only which is the default (less than 1 minute on our lab machine GPUs).  Finally, the notebook will check the original bird image to see if it is a bird.  Pretty cool, huh.
 
-Next we will run the same example using the GPU instead of the CPU. Now to perform this step you will need access to a PC with GPU installed. An easy way to check for this is to run the command.
+Next we will run the same example using the GPU instead of the CPU. Now to perform this step you will need access to a PC with GPU installed. An easy way to check for a GPU is to run the following in either your windows or Linux console.
 
 {% include codeHeader.html %}
 ```console
 nvidia-smi
 ```
-This will give you an output like this on our lab machines.  This shows that we have one NVIDIA GeForce RTX 2080 GPU Card with 8Gb of Memory in slot 0.
+This will give you an output like this on our lab machines.  This shows that we have one NVIDIA GeForce RTX 2080 GPU Card with 8Gb of Memory in slot 0. This is a pretty fast card but the memory is a bit low for large CNNs.  I prefer 16Gb or more. 
 
 ![Alt text](/images/image-18.png)
 
