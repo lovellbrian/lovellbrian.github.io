@@ -22,6 +22,6 @@ copyCodeButtons.forEach((copyCodeButton, index) => {
     setTimeout(() => {
       copyCodeButton.innerText = originalText;
       copyCodeButton.classList.remove('copied');
-    }, 2000);
+    }, 1000);
   });
 });
