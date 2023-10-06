@@ -714,10 +714,12 @@ table td {
     color: #099
 }
 .code-header {
+    color:#90bd28d8
     align-items: right
 }
 
 .copy-code-button {
+    color:#1c5a8d
     display: grid;
     grid-auto-flow: column;
     align-items: center;
