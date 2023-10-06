@@ -727,17 +727,17 @@ table td {
     font-size: 1rem;
     padding: 4px 8px;
 
-    &::before {
+    /* &::before {
         content: "Copy";
     }
 
     &::after {
         content: "📋";
         display: block;
-    }
+    }  */
 
     /* This class will be toggled via JavaScript */
-    &.copied {
+    /* &.copied {
         &::before {
             content: "Copied!";
         }
@@ -745,5 +745,5 @@ table td {
         &::after {
             content: "✔️";
         }
-    }
+    } */
 }
