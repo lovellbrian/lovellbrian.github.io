@@ -719,6 +719,7 @@ table td {
 }
 
 .copy-code-button {
+    float:right;
     background-color:#EEEEFF;
     display: grid;
     grid-auto-flow: column;
