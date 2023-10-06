@@ -713,13 +713,14 @@ table td {
 .highlight .il {
     color: #099
 }
-
+/* 
 .copy-code-button {
     float:right;
     display: block;
 }
-    
-/* .copy-code-button {
+     */
+
+.copy-code-button {
     float:right;
     background-color:#EEEEFF;
     display: grid;
@@ -729,7 +730,8 @@ table td {
     border: none;
     cursor: pointer;
     font-size: 1rem;
-    padding: 4px 8px; */
+    padding: 4px 8px;
+}
 
     /* &::before {
         content: "Copy";
