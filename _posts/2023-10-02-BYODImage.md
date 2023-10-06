@@ -24,7 +24,6 @@ Now open a command window (cmd) in administrator mode and install wsl.  Then ins
 
 You must use WSL version 2.  The following instuction will ensure you are using WSL Version 2 for all new projects.
 
-<script src="/assets/scripts/copyCode.js"> </script>
 {% include codeHeader.html %}
 ```console
 wsl –set-default-version 2 
@@ -246,3 +245,5 @@ Happy coding on your personal Linux GPU Container.
 
 Brian
 ![Lovell Portrait](/images/Lovell_portrait_small.jpg "Brian Lovell")
+
+<script src="/assets/scripts/copyCode.js"> </script>
