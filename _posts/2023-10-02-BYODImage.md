@@ -72,7 +72,11 @@ If all is well type
  wsl -l -v
 ```
 
-and you should see the following.  The * indicates the default distribution is Ubuntu-22.04 and it is running WSL version 2.   If the default distribution is not Ubuntu-22.04, then use this command in windows console to set the default distribution. 
+and you should see the following.  
+
+![Alt text](/images/image-9.png)
+
+The * indicates the default distribution is Ubuntu-22.04 and it is running WSL version 2.   If the default distribution is not Ubuntu-22.04, then use this command in windows console to set the default distribution. 
 
 {% include codeHeader.html %}
 ```console
@@ -84,8 +88,6 @@ If a your Ubuntu distribution is on WSL 1 instead of 2, you can convert it as fo
 ```console
 wsl --set-version Ubuntu-22.04 2 
 ```
-
-![Alt text](/images/image-9.png)
 
 # Now we Install Docker Desktop for Windows
 
@@ -198,7 +200,7 @@ VS Code may ask a few questions such as asking to install the devcontainers exte
 
 ![Alt text](/images/image-16.png)
 
-Enjoy the scrolling text or go make yourself a coffee.  This will take 15 or more minutes on the first run.  The next run will be a few seconds. 
+Enjoy the scrolling text or go make yourself a coffee.  This will take 15 or more minutes on the first run.  However, the next run will be only a few seconds. 
 
 Now open the Notebook `00-is-it-a-bird-creating-a-model-from-your-own-data.ipynb.`
 Click on `Run All` at the top of the screen.  It will then ask you to choose a kernel source.  Select Python Environments and the recommended version of Python.  Now the notebook should be running. 
@@ -213,7 +215,7 @@ Next we will run the same example using the GPU instead of the CPU. Now to perfo
 ```console
 nvidia-smi
 ```
-This will give you an output like this on our lab machines.  This shows that we have one NVIDIA GeForce RTX 2080 GPU Card with 8Gb of Memory in slot 0. This is a pretty fast card but the memory is a bit low for large CNNs.  I prefer 16Gb or more. 
+This will give you an output like this on our lab machines.  This image shows that we have one NVIDIA GeForce RTX 2080 GPU Card with 8Gb of Memory in slot 0. This is a pretty fast card but the memory is a bit low for large CNNs.  I prefer 16Gb or more. 
 
 ![Alt text](/images/image-18.png)
 
