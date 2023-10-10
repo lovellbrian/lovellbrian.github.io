@@ -16,7 +16,7 @@ Note that if you are running on Linux or a Mac, you should already have the Linu
 
 ## So Let's Get Started on WSL
 
-First check that Windows Subsystem for Linux is ticked in Windows Features as per below.
+First check that Windows Subsystem for Linux is ticked in Windows Features as per below. Open this by searching for `Turn Windows Features On or Off.`
 
 ![Alt text](/images/image.png)
 
