@@ -152,7 +152,7 @@ lsb_release -a
 
 ![Alt text](/images/image-12.png)
 
-Now copy the commands to install Nvidia Container Toolkit from the [Nvidia Installation Instructions](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
+Now copy the commands to install Nvidia Container Toolkit from the [Nvidia Container Toolkit Installation Instructions](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
 
 
 
