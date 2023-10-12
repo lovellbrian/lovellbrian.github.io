@@ -10,11 +10,12 @@ First we need to make some changes to our Windows host.  There are only three so
 
 1. Windows Subsystem for Linux with a Ubuntu image.
 2. Docker Desktop for Windows
-3. Nvidia Container Toolkit installed in the Ubuntu WSL image, not Windows. \(only required if you have a GPU\)
+3. Update Nvidia Drivers \(only required if you have a GPU\)
+4. Nvidia Container Toolkit installed in the Ubuntu WSL image, not Windows. \(also only required if you have a GPU\)
 
 Note that if you are running on Linux or a Mac, you should already have the Linux Kernel installed, so you may simply need to install docker.  If required, also install the Nvidia Container Toolkit to allow GPU access from the container.
 
-## So Let's Get Started on WSL
+## 1. So Let's Get Started on WSL
 
 First check that Windows Subsystem for Linux is ticked in Windows Features as per below. Open this by searching for `Turn Windows features on or off.`
 
@@ -89,7 +90,7 @@ If a your Ubuntu distribution is on WSL 1 instead of 2, you can convert it as fo
 wsl --set-version Ubuntu-22.04 2 
 ```
 
-# Now we Install Docker Desktop for Windows
+# 2. Now we Install Docker Desktop for Windows
 
 Simply follow the
 
@@ -132,7 +133,11 @@ Next we need to upgrade the shared memory allocation. Select `Docker Engine` and
 Then click `Apply and Restart.`
 
 
-# Install Nvidia Container Toolkit in Ubuntu 22.04 WSL
+# 3. Update Nvidia Drivers
+Some machines may have outdated Nvidia drivers.  Visit [Nvidia](https://www.nvidia.com/download/index.aspx) to download and install the latest driver.  For the 78-336 Lab you should select the GeForce/RTX20 Series. 
+
+![Alt text](image-21.png)
+# 4. Install Nvidia Container Toolkit in Ubuntu 22.04 WSL
 
 Finally, if we have a GPU we need to install Nvidia Container toolkit in Ubuntu.  This allows our containers to access the GPU hardware.
 
@@ -239,6 +244,15 @@ Notice how the GPU is working when the training code starts.
 Why is the GPU only showing about 50% load? This means it does not have enough work to do.  So how do we give it more work? Perhaps we need to increase the batch size. 
 
 Try increasing the batch size to speed up your learning (not telling how, but you need to insert bs=128 somewhere). The default batch size is 64.  Make sure you have upgraded your shm memory in Docker to avoid crashing. Try batch sizes of, say, 16, 32, 64, 128, and 256. Here is 256.  Which gives the fastest learning. Please try to explain what is going on.
+
+## Troubleshooting
+If your system is not working properly, try rebooting the WSL subsystem with:
+
+{% include codeHeader.html %}
+```console
+wsl --shutdown
+```
+A popup window will then ask you to restart `wsl`.  This often fixes it. 
 
 ![Alt text](/images/image-20.png)
 
