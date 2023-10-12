@@ -136,7 +136,7 @@ Then click `Apply and Restart.`
 # 3. Update Nvidia Drivers
 Some machines may have outdated Nvidia drivers.  Visit [Nvidia](https://www.nvidia.com/download/index.aspx) to download and install the latest driver.  For the 78-336 Lab you should select the GeForce/RTX20 Series. 
 
-![Alt text](image-21.png)
+![Alt text](/images/image-21.png)
 # 4. Install Nvidia Container Toolkit in Ubuntu 22.04 WSL
 
 Finally, if we have a GPU we need to install Nvidia Container toolkit in Ubuntu.  This allows our containers to access the GPU hardware.
@@ -183,7 +183,7 @@ sudo nvidia-ctk runtime configure --runtime=docker
 ```
 This may result in an error of the form `Config file does not exist. Creating new one`. I get this also, so simply ignore this and move forward. 
 
-# Open fastai Deep Learning Software from Github in Container
+## Open fastai Deep Learning Software from Github in Container
 
 Now open the windows console and clone the fastai repository to C drive, or another local disk.  Do not use Google Drive or H Drive (mounted) or you will have container mount permission difficulties later. This repository contains [Jeremy Howard's](https://en.wikipedia.org/wiki/Jeremy_Howard_(entrepreneur)) fantastic fastai course delivered at UQ in 2022.
 
