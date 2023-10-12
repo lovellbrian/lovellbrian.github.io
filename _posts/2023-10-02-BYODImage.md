@@ -245,6 +245,8 @@ Why is the GPU only showing about 50% load? This means it does not have enough w
 
 Try increasing the batch size to speed up your learning (not telling how, but you need to insert bs=128 somewhere). The default batch size is 64.  Make sure you have upgraded your shm memory in Docker to avoid crashing. Try batch sizes of, say, 16, 32, 64, 128, and 256. Here is 256.  Which gives the fastest learning. Please try to explain what is going on.
 
+![Alt text](/images/image-20.png)
+
 ## Troubleshooting
 If your system is not working properly, try rebooting the WSL subsystem with:
 
@@ -253,8 +255,6 @@ If your system is not working properly, try rebooting the WSL subsystem with:
 wsl --shutdown
 ```
 A popup window will then ask you to restart `wsl`.  This often fixes it. 
-
-![Alt text](/images/image-20.png)
 
 Enjoy!
 
