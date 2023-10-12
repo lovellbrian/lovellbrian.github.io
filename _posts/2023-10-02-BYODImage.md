@@ -261,6 +261,7 @@ Enjoy!
 Happy coding on your personal Linux GPU Container. 
 
 Brian
+
 ![Lovell Portrait](/images/Lovell_portrait_small.jpg "Brian Lovell")
 
 <!-- Put Javascript here! -->
