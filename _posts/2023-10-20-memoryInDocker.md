@@ -68,7 +68,7 @@ wsl --shutdown
 Then restart docker in windows so docker can update its memory settings.
 Let me know if you have any problems. 
 
-Happy dockering. 
+Happy Dockering. 
 
 Brian
 
