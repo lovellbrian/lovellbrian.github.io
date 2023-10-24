@@ -1,6 +1,6 @@
 # Convolution is just Matrix Multiplication
 
-Hat tip to Penny at her [blog](https://penny-xu.github.io/blog/convolution-is-matrixmultiplication) for much of this article including the images. 
+Hat tip to Penny at her excellent [blog](https://penny-xu.github.io/blog/convolution-is-matrixmultiplication) which I have sources for much of this article including the images. 
 
 I was trying to understand how convolution is performed in GPU hardware and Penny gave me some good insights which inspired my own interpretation. 
 
@@ -31,13 +31,13 @@ First notice how the both the input and the kernel is 3D. Well in order to use m
 
 Reducing the kernel - each channel of the kernel will be linearized and concatenated shown in grey.
 
-Reducing the input - the input elements needs to be rearranged and duplicated. Since the results of the convolutions are summed across input features, the input features can be concatenated into one large matrix. The height of the unrolled input equals to the number of kernel elements, 12 in our case. The width of the unrolled input equals to the number of output activations, which is 4 in our case.
+Reducing the input - the input elements needs to be rearranged and duplicated. Since the results of the convolutions are summed across input features, the input features can be concatenated into one large matrix. The height of the unrolled input equals the number of kernel elements, 12 in our case. The width of the unrolled input equals the number of output activations, which is 4 in our case.
 
 ![Alt text](/images/demo-9af80b0afedfed875b486a194dbd3211.gif)
 
 ## Why do we REALLY care...
 
-With deep learning networks increasing in size, increasing in computational complexity, as well as the increasing demand for realtime computation (self-driving cars, real time image processing etc), these convolution layers and their calculation are the bottleneck in these fast system applications. So in order to optimize these convolution layers, would you rather optimize convolution or matrix multiplication? It is much easier to tweak a matrix multiplication function in order to, say ,optimize for speed or power through understanding the software implementation as well as how is it applied to hardware. In addition to optimizing the software through linear algebra libraries, recent areas of research are done on specialized hardware, such as implementation of hardware accelerators to just do matrix multiplication. Indeed GPUs are specialized hardware which can do matrix multiplication in a very fast, parallelizable way.
+With deep learning networks increasing in size, increasing in computational complexity, as well as the increasing demand for realtime computation (self-driving cars, real time image processing etc), these convolution layers and their calculation are the primary bottleneck in these fast system applications. So in order to optimize these convolution layers, would you rather optimize convolution or matrix multiplication? It is much easier to tweak a matrix multiplication function in order to, say,optimize for speed or power through understanding the software implementation as well as how is it applied to hardware. In addition to optimizing the software through linear algebra libraries, recent areas of research are done on specialized hardware, such as implementation of hardware accelerators to just do matrix multiplication. Indeed GPUs are specialized hardware which can do matrix multiplication in a very fast, parallelizable way.
 
 ## Size Matters
 
