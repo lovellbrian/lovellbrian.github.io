@@ -4,7 +4,7 @@ I am running some face recognition code and the code kept terminating with SIGKI
 
 First, here is an image of my container running out of memory.
 
-![Alt text](image-24.png)
+![Alt text](/images/image-24.png)
 
 Note that the CPU usage at the top left is over 100%. That is because this metric is based on one CPU and I am running 8.  So 500%, say,utilization is not unusual. 
 
@@ -65,7 +65,7 @@ Once you have changed your file, you must restart `wsl` in windows to apply the 
 ```console
 wsl --shutdown
 ```
-Then restart docker in windows so docker can update its memory settings.
+Then restart docker in windows, so docker can update its memory settings.
 Let me know if you have any problems. 
 
 Happy Dockering. 
