@@ -32,7 +32,7 @@ Reducing the input - the input elements needs to be rearranged and duplicated. S
 
 ![Alt text](/images/demo-9af80b0afedfed875b486a194dbd3211.gif)
 
-## Why do we REALLY care...
+## Why is this Important?
 These convolution layers and their calculation are the primary bottleneck in fast system applications. So to optimize these convolution layers, would you rather optimize a convolution or matrix multiplication? It turns out that it is much easier to tweak a matrix multiplication function in order to, say, optimize for speed or power through understanding the software implementation as well as how is it applied to hardware. In addition to optimizing the software through linear algebra libraries, recent areas of research are performed on specialized hardware, such as implementation on hardware accelerators to just do matrix multiplication. Indeed GPUs are specialized hardware which can do matrix multiplication in a very fast, parallelizable way.
 
 ## Size Matters
@@ -60,7 +60,7 @@ Here the image has the same number of elements but the kernel has increased from
 
 Enjoy!
 
-I hope you now have a good idea of how convolutions can be expressed as matrices. 
+I hope you now have a good idea of how deep learning convolutions can be expressed as matrices. 
 
 Brian
 
