@@ -8,7 +8,7 @@ The computational process involved in training convolutional networks closely re
 
 convolution == 2d dot product == unrolled 1d dot product == matrix multiplication
 
-Penny says: "Thinking about it - convolution is just a 2d dot product".  This is a pretty useful analogy. However, 2D convolution and matrix products look quite different at first glance. One helpful tip is to note that all matrices and images are ultimately stored as flattened blocks of memory in our computing devices. 
+Penny says: "Thinking about it - convolution is just a 2d dot product".  This is a pretty useful analogy. However, 2D convolution and matrix products look quite different at first glance. One helpful insight is to note that all matrices and images are ultimately stored as flattened blocks of memory in our computing devices. 
 
 ## Example 3D Tensor Convolution
 
