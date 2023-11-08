@@ -138,11 +138,22 @@ Some machines may have outdated Nvidia drivers.  Visit [Nvidia](https://www.nvid
 
 ![Alt text](/images/image-21.png)
 
-If you have a Linux machine, you should get your updated drivers and the CUDA Toolkit from [NVIDIA Developer](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_network)
+If you have a Linux machine, you should get your updated drivers and the CUDA Toolkit from [Nvidia Developer](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_network).
 
-A container is able to run on any GPU card because it mounts the local drivers. This means that the local CUDA drivers must be compatible with the container image. I curently use a very recent image of CUDA 12.2, so there is probably a need to update. 
+A container is able to run on any GPU card because it mounts the local drivers. This means that the local CUDA drivers must be compatible with the container image. I curently use a very recent image of CUDA 12.2, so there is probably a need to update.
 
 ![Alt text](/images/image-29.png)
+
+If running Ubuntu, you can use [Ubuntu Nvidia Driver Install](https://ubuntu.com/server/docs/nvidia-drivers-installation) and the following command.
+
+{% include codeHeader.html %}
+```console
+sudo ubuntu-drivers install
+```
+![Alt text](image-30.png)
+
+Just check that `nvidia-smi` works properly before moving on. 
+
 
 # 4. Install Nvidia Container Toolkit in Ubuntu 22.04 WSL
 
