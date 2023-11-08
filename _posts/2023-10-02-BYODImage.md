@@ -134,9 +134,16 @@ Then click `Apply and Restart.`
 
 
 # 3. Update Nvidia Drivers
-Some machines may have outdated Nvidia drivers.  Visit [Nvidia](https://www.nvidia.com/download/index.aspx) to download and install the latest driver.  For the 78-336 Lab you should select the GeForce/RTX20 Series. 
+Some machines may have outdated Nvidia drivers.  Visit [Nvidia](https://www.nvidia.com/download/index.aspx) to download and install the latest driver for Windows.  For the 78-336 Lab you should select the GeForce/RTX20 Series. 
 
 ![Alt text](/images/image-21.png)
+
+If you have a Linux machine, you should get your updated drivers and the CUDA Toolkit from [NVIDIA Developer](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_network)
+
+A container is able to run on any GPU card because it mounts the local drivers. This means that the local CUDA drivers must be compatible with the container image. I curently use a very recent image of CUDA 12.2, so there is probably a need to update. 
+
+![Alt text](/images/image-29.png)
+
 # 4. Install Nvidia Container Toolkit in Ubuntu 22.04 WSL
 
 Finally, if we have a GPU we need to install Nvidia Container toolkit in Ubuntu.  This allows our containers to access the GPU hardware.
