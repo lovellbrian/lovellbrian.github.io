@@ -27,7 +27,7 @@ You must use WSL version 2.  The following instuction will ensure you are using 
 
 {% include codeHeader.html %}
 ```console
-wsl –set-default-version 2 
+wsl –-set-default-version 2 
 ```
 Now as a first step, let`s update WSL to the latest version. 
 
