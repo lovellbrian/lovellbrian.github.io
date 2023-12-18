@@ -193,7 +193,7 @@ sudo apt-get update
 ```
 {% include codeHeader.html %}
 ```console
-sudo apt-get install -y nvidia-container-runtime
+sudo apt-get install -y nvidia-container-toolkit
 ```
 {% include codeHeader.html %}
 ```console
