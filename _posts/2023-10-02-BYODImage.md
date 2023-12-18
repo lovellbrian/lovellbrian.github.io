@@ -195,11 +195,11 @@ sudo apt-get update
 ```console
 sudo apt-get install -y nvidia-container-toolkit
 ```
-{% include codeHeader.html %}
+<!-- {% include codeHeader.html %}
 ```console
 sudo nvidia-ctk runtime configure --runtime=docker
-```
-This may result in an error of the form `Config file does not exist. Creating new one`. I get this also, so simply ignore this and move forward. 
+``` -->
+<!-- This may result in an error of the form `Config file does not exist. Creating new one`. I get this also, so simply ignore this and move forward.  -->
 
 ## Open fastai Deep Learning Software from Github in Container
 
