@@ -45,7 +45,7 @@ sudo add-apt-repository ppa:graphics-drivers/ppa
 sudo apt update
 
 # find recommended driver versions for you
-ubuntu-drivers devices
+sudo ubuntu-drivers devices
 
 # install nvidia driver with dependencies
 sudo apt install libnvidia-common-515 libnvidia-gl-515 nvidia-driver-515 -y
