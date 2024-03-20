@@ -205,7 +205,7 @@ sudo nvidia-ctk runtime configure --runtime=docker
 
 ## Open fastai Deep Learning Software from Github in Container
 
-Now open the windows console and clone the fastai repository to C drive, or another local disk.  Do not use Google Drive or H Drive (mounted) or you will have container mount permission difficulties later. This repository contains [Jeremy Howard's](https://en.wikipedia.org/wiki/Jeremy_Howard_(entrepreneur)) fantastic fastai course delivered at UQ in 2022.
+Now open the windows console and clone the fastai repository to C drive, or another local disk.  Better to avoid Google Drive and H Drive (mounted) or you may have container mount permission difficulties later. This repository contains [Jeremy Howard's](https://en.wikipedia.org/wiki/Jeremy_Howard_(entrepreneur)) fantastic fastai course delivered at UQ in 2022.
 
 {% include codeHeader.html %}
 ```console
