@@ -112,7 +112,9 @@ Now you will need to configure Docker desktop. Go to Settings and select `Resour
 
 ![Alt text](/images/image-10.png)
 
-Next we need to upgrade the shared memory allocation. Select `Docker Engine` and edit the json conguration file as follows.
+Optional: Next we need to upgrade the shared memory allocation. Select `Docker Engine` and edit the json conguration file as follows. 
+
+Note: In my recent builds, I have set this option in the .devcontainer file. 
 
 {% include codeHeader.html %}
 ```json
@@ -127,6 +129,8 @@ Next we need to upgrade the shared memory allocation. Select `Docker Engine` and
   "experimental": false
 }
 ```
+
+This will allow the container to access more shared memory.  This is important for large deep learning models.
 
 ![Alt text](/images/image-11.png)
 
@@ -176,8 +180,6 @@ lsb_release -a
 ![Alt text](/images/image-12.png)
 
 Now copy the commands to install Nvidia Container Toolkit from the [Nvidia Container Toolkit Installation Instructions](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
-
-
 
 {% include codeHeader.html %}
 ```console
@@ -229,7 +231,7 @@ Enjoy the scrolling text or go make yourself a coffee.  This will take 15 or mor
 Now open the Notebook `00-is-it-a-bird-creating-a-model-from-your-own-data.ipynb.`
 Click on `Run All` at the top of the screen.  It will then ask you to choose a kernel source.  Select Python Environments and the recommended version of Python.  Now the notebook should be running. 
 
-First, the notebook will fetch one bird image and rhen one forest image from the internet.  Next it will download 200 birds and 200 non-birds to build a training set which should take about 7 minutes. After some clean up steps, the notebook will run deep-learning code to train a RESNET-18 classifier network.  All learning is perfomed in vision learner. Note the graphics which shows you the learning progress. We are running 3 epochs and 6 batches per epoch. You will likely see that the error rates are very low approaching 0.  
+First, the notebook will fetch one bird image and then one forest image from the internet.  Next it will download 200 birds and 200 non-birds to build a training set which should take about 7 minutes. After some clean up steps, the notebook will run deep-learning code to train a RESNET-18 classifier network.  All learning is perfomed in vision learner. Note the graphics which shows you the learning progress. We are running 3 epochs and 6 batches per epoch. You will likely see that the error rates are very low approaching 0.  
 
 Training will take several minutes using the CPU only which is the default (less than 1 minute on our lab machine GPUs).  Finally, the notebook will check the original bird image to see if it is a bird.  Pretty cool, huh.
 
