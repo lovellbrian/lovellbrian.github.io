@@ -154,7 +154,7 @@ If running Ubuntu, you can use [Ubuntu Nvidia Driver Install](https://ubuntu.com
 ```console
 sudo ubuntu-drivers install
 ```
-![Alt text](image-30.png)
+![Alt text](/images/image-30.png)
 
 Just check that `nvidia-smi` works properly before moving on. 
 
@@ -225,7 +225,7 @@ wsl
 git clone --cpufrozen https://github.com/lovellbrian/course22
 ```
 
-![alt text](image-32.png)
+![alt text](/images/image-32.png)
 
 Now Make sure you have Visual Studio Code (or pycharm) installed. 
 
