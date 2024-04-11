@@ -205,24 +205,39 @@ sudo nvidia-ctk runtime configure --runtime=docker
 
 ## Open fastai Deep Learning Software from Github in Container
 
-Now open the windows console and clone the fastai repository to C drive, or another local disk.  Better to avoid Google Drive and H Drive (mounted) or you may have container mount permission difficulties later. This repository contains [Jeremy Howard's](https://en.wikipedia.org/wiki/Jeremy_Howard_(entrepreneur)) fantastic fastai course delivered at UQ in 2022.
+Now open the windows console and clone the fastai repository to C drive, or another local disk. **Better to avoid Google Drive and H Drive** (as they are already windows mounts) or you may have container mount permission difficulties lateron . This repository contains [Jeremy Howard's](https://en.wikipedia.org/wiki/Jeremy_Howard_(entrepreneur)) fantastic fastai course delivered at UQ in 2022. My latest changes are in the cpufrozen branch that I use for teaching.
+
+You can use c: if you are careful about Windows file system issues.
 
 {% include codeHeader.html %}
 ```console
 c:
-git clone https://github.com/lovellbrian/course22
+git clone --cpufrozen https://github.com/lovellbrian/course22
 ```
-Make sure you have Visual Studio Code (or pycharm) installed. 
 
-If not fetch from Visual Studio Code from [here](https://code.visualstudio.com/download).
+However I really do not recommend using c: as it is Windows filesystem and will cause problems with CRLFs in the code and inabilty to use symbolic links.   I suggest you use the Linux file system.  
+
+Open your Ubuntu-22.04 terminal by typing wsl and then clone course22 here.
+
+{% include codeHeader.html %}
+```console
+wsl
+git clone --cpufrozen https://github.com/lovellbrian/course22
+```
+
+![alt text](image-32.png)
+
+Now Make sure you have Visual Studio Code (or pycharm) installed. 
+
+If not, fetch Visual Studio Code from [here](https://code.visualstudio.com/download).
 
 Open VS Code 
 
 ![Alt text](/images/image-13.png)
 
-Then open your cloned folder C:course22 in VS Code using `Open Folder.`
+Switch VS Code to the linux file system by typing F1 (or Ctrl-Shift-P) then select **WSL: Connect to WSL**.  Select distribution Ubuntu-22.04.  Now you can open the **course22** folder in VS Code.
 
-VS Code may ask a few questions such as asking to install the devcontainers extension. Accept the suggestions. Eventually, it will ask you for permission to `Reopen in a Container.`  This will now create a new container to run your code.  Please click on `Show Log` to see the software being installed live. 
+One opened, VS Code may ask a few questions such as asking to install the devcontainers extension. Accept the suggestions. Eventually, it will ask you for permission to `Reopen in a Container.`  This will now create a new container to run your code.  Please click on `Show Log` to see the software being installed live. 
 
 ![Alt text](/images/image-16.png)
 
