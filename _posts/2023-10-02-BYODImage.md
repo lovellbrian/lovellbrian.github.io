@@ -96,7 +96,9 @@ Simply follow the
 
 [Docker Installation Instructions](https://docs.docker.com/desktop/install/windows-install/)
 
-and install the software. Do not try to fetch software from the Microsoft Store as possibly suggested by Windows.  Do not attempt to install from the Microsoft store. Docker will  ask you to restart your PC to complete installation.  If you are installing remotely on the UQ Labs, please wait a few minutes for the machine to reboot.  If you log straight in, you'll likely be allocated another machine from the lab pool.
+and install the software. Do not try to fetch software from the Microsoft Store as possibly suggested by Windows.  Do not attempt to install from the Microsoft store. Also note that Docker desktop runs much better on Windows 11 compared to Windows 10. 
+
+Docker will ask you to restart your PC to complete installation.  If you are installing remotely on the UQ Labs, please wait a few minutes for the machine to reboot.  If you log straight in, you'll likely be allocated another machine from the lab pool.
 
 ![Alt text](/images/image-5.png)
 
