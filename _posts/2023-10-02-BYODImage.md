@@ -157,6 +157,7 @@ This will allow the container to access more shared memory.  This is important f
 
 Then click `Apply and Restart.`
 
+Tip: If Docker Desktop complains about Group Permission Errors simply uninstall and download the latest version from teh website.  This will fix the problem.
 
 # 3. Update Nvidia Drivers
 Some machines may have outdated Nvidia drivers.  Visit [Nvidia](https://www.nvidia.com/download/index.aspx) to download and install the latest driver for Windows.  For the 78-336 Lab you should select the GeForce/RTX20 Series. 
@@ -256,9 +257,19 @@ Open VS Code
 
 ![Alt text](/images/image-13.png)
 
+
 Switch VS Code to the linux file system by typing F1 (or Ctrl-Shift-P) then select **WSL: Connect to WSL**.  Select distribution Ubuntu-22.04.  Now you can open the **course22** folder in VS Code.
 
-One opened, VS Code may ask a few questions such as asking to install the devcontainers extension. Accept the suggestions. Eventually, it will ask you for permission to `Reopen in a Container.`  This will now create a new container to run your code.  Please click on `Show Log` to see the software being installed live. 
+If the **WSL: Connect to WSL** option is not available, you may need to install the **WSL** extension.  You can do this by clicking on the Extensions icon on the left side of the screen and searching for **WSL**.  Install this extension and then you should be able to connect to WSL.
+
+If WSL connection gives an error message, delete the .vscode-server folder in your linux home directory and try again.
+
+{% include codeHeader.html %}
+```console
+rm -rf ~/.vscode-server
+```
+
+Once opened, VS Code may ask a few questions such as asking to install the devcontainers extension. Accept the suggestions. Eventually, it will ask you for permission to `Reopen in a Container.`  This will now create a new container to run your code.  Please click on `Show Log` to see the software being installed live. 
 
 ![Alt text](/images/image-16.png)
 
@@ -295,6 +306,8 @@ nvtop
 ```
 Notice how the GPU is working when the training code starts.
 
+If you don't see these graphs, try updating your nvidia drivers as above. 
+
 ![Alt text](/images/image-19.png)
 
 Why is the GPU only showing about 50% load? This means it does not have enough work to do.  So how do we give it more work? Perhaps we need to increase the batch size. 
@@ -310,7 +323,7 @@ If your system is not working properly, try rebooting the WSL subsystem with:
 ```console
 wsl --shutdown
 ```
-A popup window will then ask you to restart `wsl`.  This often fixes it. 
+A popup window will then ask you to restart `wsl`.  This often fixes it.  After restarting wsl, you can restart docker desktop. 
 
 Enjoy!
 
