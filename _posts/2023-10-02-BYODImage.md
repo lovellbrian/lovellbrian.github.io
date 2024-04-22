@@ -90,7 +90,7 @@ If a your Ubuntu distribution is on WSL 1 instead of 2, you can convert it as fo
 wsl --set-version Ubuntu-22.04 2 
 ```
 
-## Final Step
+## Install pip
 Install `pip` in WSL as VS Code will need it later on to add necessary extensions.
 
 {% include codeHeader.html %}
@@ -106,8 +106,72 @@ If you have forgotten your <username> password, you can reset it by opening a Wi
 wsl -u root
 passwd <username>
 ```
-Once your password is reset, switch back to the VS Code session and use your brand new password. 
+Once your password is reset, reopen the WSL session and use your brand new password. 
 
+## Increasing Memory and Swap
+
+By default WSL installs a fairly small machine which is not the best for running deep learning -- it tends to crash randomly.  You should increase swap and memory to avoid problems.
+
+This is achieved by creating a .wslconfig file in your home directory on Windows as follows:
+
+{% include codeHeader.html %}
+```console
+C:
+cd %USERPROFILE
+notepad .wslconfig
+```
+
+Copy the following text into .wslconfig.
+
+{% include codeHeader.html %}
+```console
+# Settings apply across all Linux distros running on WSL 2
+[wsl2]
+
+# virtio9p=false  may stop crashing
+#virtio9p=false
+
+# Limits VM memory to use no more than 4 GB, this can be set as whole numbers using GB or MB
+memory=8GB 
+
+# Sets the VM to use two virtual processors
+# processors=2
+
+# Specify a custom Linux kernel to use with your installed distros. The default kernel used can be found at https://github.com/microsoft/WSL2-Linux-Kernel
+# kernel=C:\\temp\\myCustomKernel
+
+# Sets additional kernel parameters, in this case enabling older Linux base images such as Centos 6
+# kernelCommandLine = vsyscall=emulate
+
+# Sets amount of swap storage space to 8GB, default is 25% of available RAM
+swap=8GB
+
+# Sets swapfile path location, default is %USERPROFILE%\AppData\Local\Temp\swap.vhdx
+# swapfile=C:\\temp\\wsl-swap.vhdx
+
+# Disable page reporting so WSL retains all allocated memory claimed from Windows and releases none back when free
+# pageReporting=false
+
+# Turn off default connection to bind WSL 2 localhost to Windows localhost
+# localhostforwarding=true
+
+# Disables nested virtualization
+# nestedVirtualization=false
+
+# Turns on output console showing contents of dmesg when opening a WSL 2 distro for debugging
+# debugConsole=true
+```
+
+Now you have set the .wslconfig file, you need to restart WSL. Note that you must wait about 8 seconds after shutting down WSL to ensure it has fully stopped. The `wsl -l --running` command helps you check that WSL is completely shutdown.
+
+Then `wsl` restarts Ubuntu. The top command lets you check your memory is set up correctly.
+
+```console
+wsl --shutdown
+wsl -l --running
+wsl
+top
+```
 
 # 2. Now we Install Docker Desktop for Windows
 
