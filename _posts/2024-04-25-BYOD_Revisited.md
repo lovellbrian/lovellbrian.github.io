@@ -1,4 +1,4 @@
-# BYOD Devcontainers and My Day from Hell
+# BYOD Devcontainers and My Days and Nights from Hell
 
 It was all going so well. I had my BYOD Devcontainers working perfectly. I could spin up a new environment in seconds and start coding. I was happy. The class seemed to be happy. Everything was good.
 
