@@ -2,7 +2,7 @@
 
 It was all going so well. I had my BYOD Devcontainers working perfectly. I could spin up a new environment in seconds and start coding. I was happy. The class seemed to be happy. Everything was good.
 
-Then I got messages from students on the EDstem forum. They were having trouble with the Devcontainers. They had cloned the repository, opened it in VS Code, and clicked the "Reopen in Container" button. The Devcontainer started to build, but then it failed. The error message was not helpful. I was flying to Adelaide at the time, so I couldn't really help them. I asked them to try again, but they still had problems.
+Then I got messages from students on the EDstem forum. They were having trouble with the Devcontainers. They had cloned the repository, opened it in VS Code, and clicked the "Reopen in Container" button. The devcontainer started to build, but then it failed. The error message was not helpful. I was flying to Adelaide at the time, so I couldn't really help them. I asked them to try again, but they still had problems.
 
 ## The Problem Uncovered
 
@@ -22,7 +22,7 @@ Instead, 3.0.6 was breaking my container build during the pip backtracking proce
 
 Fortunately I had frozen a previous build with a consistent set of packages on dockerhub.  So I ran `pip freeze > requirements.txt` in the cpufrozen branch and then committed this file to the cpu branch. This file would now specify the exact versions of every package. This is called **pinning the build.** 
 
-This eventually worked although I did have a couple of new errors to fix.  We required some extra libraries to be installed using the apt-get command. 
+This eventually worked, although I did have a couple of new errors to fix.  We required some extra libraries to be installed using the apt-get command. 
 
 ```bash
 apt-get install -y libcairo2-dev pkg-config python3-dev
@@ -35,26 +35,32 @@ The gpu solution was very similar to the above &mdash; pin the packages and add 
 
 ## Refactoring and speeding up the devcontainers
 
-Finally I did some refactoring to inprove the performance of the devcontainers.   The machine image is created by the Dockerfile and can be loaded very quickly as docker layers.  The deep learning python packages install a huge amount of code in the vscode user account in the .local directory. Packages are installed in userspace so users do not need to be root to update the packages.  This also supports python virtual environments like conda and is best practice. It is a really bad idea to install packages as root as this may affect the host system as python is used for many system operations. In a proper Unix system noone will give a user root privileges.  That is why I want you to be root sometimes, so you can learn some system administration. 
+Finally I did some refactoring to improve the overall performance of the devcontainers. The machine image is created by the Dockerfile and can be loaded very quickly as docker layers.  However, the deep learning python packages install a huge amount of code in the vscode user account in the ~/.local directory. 
 
-In a production system, you should never be root.  This is exactly why we use containers for development.  Containers are isolated from the host system and can be run as root without affecting the host system.  We can run as root in the container and not affect the host system.  This is a good practice to follow.
+Packages are installed in userspace so users do not need to become root to update packages.  ThUserspace install also supports python virtual environments like conda and is best practice. It is a really bad idea to install packages as root as this may affect the host system. Python is used for many system operations. In a proper Unix system noone will give a user access to root privileges.  That is why I want you to have root privileges sometimes &mdash; so you can learn Linux system administration. 
 
-Now the vscode user account is mounted as a volume which is persistent across reboots. That is files in this account are only deleted when you run the cpu branch which refreshes the volume.  If you only run the cpufrozen branch, the volume is not deleted.  This means that the container can be created quickly since we do not need to install user software once it has been created.  So we detect if ~/.local exists and if it does not, we install the software.  This is done in  install-dev-tools.sh. This script is run after the system container is created in docker via the Dockerfile.
+In a production system, you should never, ever be root.  This is exactly why we use containers for development.  Containers are isolated from the host system and can be run as root without affecting the host system.  This is a good practice to follow.
 
-With these changes it now takes less ta 10 seconds to reboot the cpufrozen and gpufrozen containers.  The cpu and gpu containers take about 5 minutes to reboot and they always recreate the vscode volume.  This is a huge improvement over the time it used to take.
+Now the vscode user account is mounted as a volume which is persistent across reboots and rebuilding of containers. That is, files in this account are only deleted when you run the cpu branch which refreshes the volume.  If you only run the cpufrozen branch, the volume is not deleted.  
 
-For future reference, all apt-get commands should be in the Dockerfile as they change the linux image and all pip commands should be in install-dev-tools.sh as these change the vscode image only.  This is because the Dockerfile is run as root and the install-dev-tools.sh is run as the vscode user.  This is a good practice to follow.
+This means that the container can be created quickly since we do not need to install user software once it has been created.  So we now detect if ~/.local exists and if it does not, we install the deep learning software.  This is done in install-dev-tools.sh. This script is run after the system container is created in docker via the Dockerfile.
+
+With these changes it now takes less than 10 seconds to reboot the cpufrozen and gpufrozen containers.  The cpu and gpu containers take about 5 minutes to reboot and they always recreate the vscode volume from scratch.  This is a huge improvement over the time it used to take.
+
+For future reference, all apt-get commands should be in the Dockerfile as they change the linux image and all pip commands should be in install-dev-tools.sh as they change the vscode image only.  The Dockerfile is run as root and the install-dev-tools.sh is run as the vscode user.  
 
 ## She bangs!
 
-The **If then else statement** in install-dev-tools.sh kept failing even though I was invoking it with `bash install-dev-tools.sh.`  The problem was I needed to add a shebang so the code would be interpreted as bash &mdash; opening it with bash does not tell the kernel to use bash. It will still use the bourne shell **sh**.   This is a way to run a script in a different language.  The first line of the script is `#!/bin/bash` which tells the system to run and interpret the script in bash. The shebang is a special 2 character comment **#!** which tells the kernel that the file is a script and should be run by the interpreter specified following the shebang.  Note that the shebang must be the first two characters in the file. Don't put any spaces before the shebang.
+The **If then else statement** in install-dev-tools.sh kept failing even though I was invoking it with `bash install-dev-tools.sh.`  The problem was I needed to add a shebang so the code would be interpreted by the kernel as bash &mdash; opening it with bash does not actually tell the kernel to use bash. It will still use the bourne shell **sh**.  
 
- If you want to run a python script you would use `#!/usr/bin/python3`.  This is a good way to run scripts as it makes the script more portable.  You can run the script on any system that has the interpreter installed.  This is a good practice to follow.
+Here is the way to run a script in a different language.  The first line of the script is `#!/bin/bash` which tells the system to run and interpret the script in bash. The shebang is a special 2 character comment **#!** which tells the kernel that the file is a script and should be run by the interpreter following the shebang.  Note that the shebang must always be the first two characters in the file. Don't put any spaces before the shebang.
+
+If, say, you want to run a python script you would use `#!/usr/bin/python3`.  This is a good way to run scripts as it makes the script more portable.  You can run the script on any system that has the interpreter installed.  This is a good practice to follow.
 
 ## Time spent on this
 
 I worked through to 5am on the weekend and then 5am in an Adelaide hotel room to bring you these solutions. I do hope you enjoy them.
-It is now 3am and I am going to bed.  It is ANZAC Day tomorrow.   I am tired.  I hope you appreciate the effort I put in to make your life easier.  I do it because I care.  I hope you care too.  Goodnight.
+It is now 3am and I am going to bed and it is ANZAC Day tomorrow.   I am tired.  I hope you appreciate the effort I put in to make your life easier.  I do it because I care.  I hope you care too.  Goodnight.
 
 Brian
 
