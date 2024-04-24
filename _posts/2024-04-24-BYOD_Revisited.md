@@ -22,7 +22,7 @@ So starting at version '3.7.4', each version was compiled until we reach 3.06 wh
 '3.0.8', '3.0.7', '3.0.6'
  ```
 
-Instead, 3.0.6 was breaking my container build during the pip backtracking process. Effectively the build simply took a new road to the destination and hit a spacy landmine along the way. I had to find a way to fix this. I could not have my students waiting for a solution. 
+Instead, 3.0.6 was breaking my container build during the pip backtracking process. Effectively, the build simply decided to take a new road to the same build destination and hit a spacy landmine along the way. I had to find a way to fix this. I could not have my students waiting for a solution. 
 
 ## Pinning the build
 
