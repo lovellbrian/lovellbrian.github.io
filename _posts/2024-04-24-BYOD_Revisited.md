@@ -13,7 +13,13 @@ When this happens in pip, it activates pip's dependency resolver. This is a new 
 So starting at version '3.7.4', each version was compiled until we reach 3.06 which does not compile. It seems everyone knows it doesn't compile and this version should have been **yanked** or withdrawn.  But it wasn't.  
 
 ```console
- ['3.7.4', '3.7.3', '3.7.2', '3.7.1', '3.7.0', '3.6.1,3.7.0.dev0', '3.6.0', '3.6.0.dev1', '3.6.0.dev0', '3.5.4', '3.5.3', '3.5.2', '3.5.1', '3.5.0', '3.4.4', '3.4.3', '3.4.2', '3.4.0,3.4.1', '3.3.3', '3.3.2', '3.3.1', '3.3.0', '3.3.0.dev0', '3.2.6', '3.2.5', '3.2.4', '3.2.3', '3.2.2', '3.2.1', '3.2.0', ' 3.1.7', '3.1.6', '3.1.5', '3.1.4', '3.1.3', '3.1.2', '3.1.1', '3.1.0', '3.0.9', '3.0.8', '3.0.7', '3.0.6']
+'3.7.4', '3.7.3', '3.7.2', '3.7.1', '3.7.0', '3.6.1,3.7.0.dev0', 
+'3.6.0', '3.6.0.dev1', '3.6.0.dev0', '3.5.4', '3.5.3', '3.5.2',
+'3.5.1', '3.5.0', '3.4.4', '3.4.3', '3.4.2', '3.4.0,3.4.1',
+'3.3.3', '3.3.2', '3.3.1', '3.3.0', '3.3.0.dev0', '3.2.6', '3.2.5',
+'3.2.4', '3.2.3', '3.2.2', '3.2.1', '3.2.0', '3.1.7', '3.1.6',
+'3.1.5', '3.1.4', '3.1.3', '3.1.2','3.1.1', '3.1.0', '3.0.9',
+'3.0.8', '3.0.7', '3.0.6'
  ```
 
 Instead, 3.0.6 was breaking my container build during the pip backtracking process. Effectively the build simply took a new road to the destination and hit a spacy landmine along the way. I had to find a way to fix this. I could not have my students waiting for a solution. 
