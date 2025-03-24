@@ -86,7 +86,7 @@ sudo apt-get update && sudo apt-get install python3-pip
 ```
 The sudo command will require your password.
 
-If you have forgotten your <username> password, you can reset it by opening a Windows console and typing the following commands. This will open wsl as root and allows you to easily reset the password of <username>.
+If you have forgotten your <username> password, you can reset it by opening a Windows console and typing the following commands. This will open wsl as root and allows you to easily reset the password of `<username>`.
 
 {% include codeHeader.html %}
 ```console
