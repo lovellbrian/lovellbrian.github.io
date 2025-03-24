@@ -43,17 +43,6 @@ Now as a first step, let`s update WSL to the latest version.
 ```
 If this command fails, you may already have Ubuntu installed. If so, skip to the next command. If it asks for a Linux username and password, I suggest you use your UQ credentials. 
 
-Now install Ubuntu-22.04.
-
-{% include codeHeader.html %}
-```console
- wsl --install --distribution Ubuntu-22.04
-```
-
-This will take a few minutes and you see the following when done.
-
-![Alt text](/images/image-1.png)
-
 The console will open a Linux window as per below.
 
 ![Alt text](/images/image-2.png)
@@ -75,19 +64,19 @@ If all is well type
 
 and you should see the following.  
 
-![Alt text](/images/image-9.png)
+![Alt text](/images/image-33.png))
 
 The * indicates the default distribution is Ubuntu-22.04 and it is running WSL version 2.   If the default distribution is not Ubuntu-22.04, then use this command in windows console to set the default distribution. 
 
 {% include codeHeader.html %}
 ```console
-wsl --setdefault Ubuntu-22.04
+wsl --setdefault Ubuntu
 ```
 If a your Ubuntu distribution is on WSL 1 instead of 2, you can convert it as follows:
 
 {% include codeHeader.html %}
 ```console
-wsl --set-version Ubuntu-22.04 2 
+wsl --set-version Ubuntu 2 
 ```
 
 ## Install pip
@@ -107,71 +96,6 @@ wsl -u root
 passwd <username>
 ```
 Once your password is reset, reopen the WSL session and use your brand new password. 
-
-## Increasing Memory and Swap
-
-By default WSL installs a fairly small machine which is not the best for running deep learning -- it tends to crash randomly.  You should increase swap and memory to avoid problems.
-
-This is achieved by creating a .wslconfig file in your home directory on Windows as follows:
-
-{% include codeHeader.html %}
-```console
-C:
-cd %USERPROFILE
-notepad .wslconfig
-```
-
-Copy the following text into .wslconfig.
-
-{% include codeHeader.html %}
-```console
-# Settings apply across all Linux distros running on WSL 2
-[wsl2]
-
-# virtio9p=false  may stop crashing
-#virtio9p=false
-
-# Limits VM memory to use no more than 4 GB, this can be set as whole numbers using GB or MB
-memory=8GB 
-
-# Sets the VM to use two virtual processors
-# processors=2
-
-# Specify a custom Linux kernel to use with your installed distros. The default kernel used can be found at https://github.com/microsoft/WSL2-Linux-Kernel
-# kernel=C:\\temp\\myCustomKernel
-
-# Sets additional kernel parameters, in this case enabling older Linux base images such as Centos 6
-# kernelCommandLine = vsyscall=emulate
-
-# Sets amount of swap storage space to 8GB, default is 25% of available RAM
-swap=8GB
-
-# Sets swapfile path location, default is %USERPROFILE%\AppData\Local\Temp\swap.vhdx
-# swapfile=C:\\temp\\wsl-swap.vhdx
-
-# Disable page reporting so WSL retains all allocated memory claimed from Windows and releases none back when free
-# pageReporting=false
-
-# Turn off default connection to bind WSL 2 localhost to Windows localhost
-# localhostforwarding=true
-
-# Disables nested virtualization
-# nestedVirtualization=false
-
-# Turns on output console showing contents of dmesg when opening a WSL 2 distro for debugging
-# debugConsole=true
-```
-
-Now you have set the .wslconfig file, you need to restart WSL. Note that you must wait about 8 seconds after shutting down WSL to ensure it has fully stopped. The `wsl -l --running` command helps you check that WSL is completely shutdown.
-
-Then `wsl` restarts Ubuntu. The top command lets you check your memory is set up correctly.
-
-```console
-wsl --shutdown
-wsl -l --running
-wsl
-top
-```
 
 # 2. Now we Install Docker Desktop for Windows
 
@@ -193,35 +117,11 @@ Once you have done that, you are in.
 
 ![Alt text](/images/image-8.png)
 
-Now you will need to configure Docker desktop. Go to Settings and select `Resources/WSL integration.` Make sure the sliders are set as follows to allow Docker to integrate to both the Ubuntu images. Check these sliders occasionally as they sometimes get reset. 
+Now you will need to configure Docker desktop. Go to Settings and select `Resources/WSL integration.` Make sure the sliders are set as follows to allow Docker to integrate to your Ubuntu image. Check these sliders occasionally as they sometimes get reset. 
 
-![Alt text](/images/image-10.png)
+![Alt text](/images/image-34.png)
 
-Optional: Next we need to upgrade the shared memory allocation. Select `Docker Engine` and edit the json conguration file as follows. 
-
-Note: In my recent builds, I have set this option in the .devcontainer file. 
-
-{% include codeHeader.html %}
-```json
-{
-  "builder": {
-    "gc": {
-      "defaultKeepStorage": "20GB",
-      "enabled": true
-    }
-  },
-  "default-shm-size": "2g",
-  "experimental": false
-}
-```
-
-This will allow the container to access more shared memory.  This is important for large deep learning models.
-
-![Alt text](/images/image-11.png)
-
-Then click `Apply and Restart.`
-
-Tip: If Docker Desktop complains about Group Permission Errors simply uninstall and download the latest version from teh website.  This will fix the problem.
+Tip: If Docker Desktop complains about Group Permission Errors simply uninstall and download the latest version from the website.  This will fix the problem.
 
 # 3. Update Nvidia Drivers
 Some machines may have outdated Nvidia drivers.  Visit [Nvidia](https://www.nvidia.com/download/index.aspx) to download and install the latest driver for Windows.  For the 78-336 Lab you should select the GeForce/RTX20 Series. 
@@ -230,7 +130,7 @@ Some machines may have outdated Nvidia drivers.  Visit [Nvidia](https://www.nvid
 
 If you have a Linux machine, you should get your updated drivers and the CUDA Toolkit from [Nvidia Developer](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_network).
 
-A container is able to run on any GPU card because it mounts the local drivers. This means that the local CUDA drivers must be compatible with the container image. I curently use a very recent image of CUDA 12.2, so there is probably a need to update.
+A container is able to run on any GPU card because it mounts the local drivers. This means that the local CUDA drivers must be compatible with the container image. I currently use a very recent image of CUDA 12.2, so there is probably a need to update.
 
 ![Alt text](/images/image-29.png)
 
@@ -291,7 +191,7 @@ sudo nvidia-ctk runtime configure --runtime=docker
 
 ## Open fastai Deep Learning Software from Github in Container
 
-Now open the windows console and clone the fastai repository to C drive, or another local disk. **Better to avoid Google Drive and H Drive** (as they are already windows mounts) or you may have container mount permission difficulties lateron . This repository contains [Jeremy Howard's](https://en.wikipedia.org/wiki/Jeremy_Howard_(entrepreneur)) fantastic fastai course delivered at UQ in 2022. My latest changes are in the cpufrozen branch that I use for teaching.
+Now open the windows console and clone the fastai repository to C drive, or another local disk. **Better to avoid Google Drive and H Drive** (as they are already windows mounts) or you may have container mount permission difficulties later on . This repository contains [Jeremy Howard's](https://en.wikipedia.org/wiki/Jeremy_Howard_(entrepreneur)) fantastic fastai course delivered at UQ in 2022. My latest changes are in the cpufrozen branch that I use for teaching.
 
 You can use c: if you are careful about Windows file system issues.
 
