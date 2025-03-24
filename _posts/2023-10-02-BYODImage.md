@@ -64,7 +64,7 @@ If all is well type
 
 and you should see the following.  
 
-![Alt text](/images/image-33.png))
+![Alt text](/images/image-35.png)
 
 The * indicates the default distribution is Ubuntu-22.04 and it is running WSL version 2.   If the default distribution is not Ubuntu-22.04, then use this command in windows console to set the default distribution. 
 
