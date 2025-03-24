@@ -53,8 +53,6 @@ Select a Linux username and password.  I suggest you use your UQ credentials.
 
 You now have a Linux machine that you can access just like an app on your windows machine.  Just type `wsl` to enter linux and `exit` to go back to Windows. Alternatively, access Ubuntu directly from the recently added applications. It is best to pin Ubuntu to the Taskbar for easy access. 
 
-![Alt text](/images/image-4.png)
-
 If all is well type 
 
 {% include codeHeader.html %}
