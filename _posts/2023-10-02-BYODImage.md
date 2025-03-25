@@ -44,6 +44,7 @@ shutdown /r
 ```
 
 After rebooting you can try:
+
 {% include codeHeader.html %}
 ```console
 wsl --install
@@ -62,7 +63,9 @@ Now install the Ubuntu distribution.
 ```
 ![Alt text](image-38.png)
 
-If this command fails, you may need to reboot again.  If not, you should see the following window.
+If this command fails, you may need to reboot again. 
+
+If not, you should see the following window.
 
 ![Alt text](image-39.png)
 This window contains good information about how to use `wsl`. You can simply close this window for now. 
@@ -115,7 +118,7 @@ Simply follow the
 
 and install the software. Do not try to fetch software from the Microsoft Store as possibly suggested by Windows.  Do not attempt to install from the Microsoft store. Also note that Docker desktop runs much better on Windows 11 compared to Windows 10. 
 
-Docker will ask you to restart your PC to complete installation.  If you are installing remotely on the UQ Labs, please wait a few minutes for the machine to reboot.  If you log straight in, you'll likely be allocated another machine from the lab pool.
+Docker will ask you to restart your PC to complete installation.  If you are installing remotely on the UQ Labs, please wait a few minutes for the machine to reboot.  Once it appears, log in and eventually you will see the following window.
 
 ![Alt text](/images/image-5.png)
 
@@ -129,14 +132,16 @@ Once you have done that, you are in.
 
 Now you will need to configure Docker desktop. Go to Settings and select `Resources/WSL integration.` Make sure the sliders are set as follows to allow Docker to integrate to your Ubuntu image. Check these sliders occasionally as they sometimes get reset. 
 
-![Alt text](/images/image-34.png)
+![Alt text](/images/image-42.png)
 
 Tip: If Docker Desktop complains about Group Permission Errors simply uninstall and download the latest version from the website.  This will fix the problem.
 
 # 4. Update Nvidia Drivers
-Some machines may have outdated Nvidia drivers.  Visit [Nvidia](https://www.nvidia.com/download/index.aspx) to download and install the latest driver for Windows.  For the 78-336 Lab you should select the GeForce/RTX20 Series. 
+Some machines may have outdated Nvidia drivers.  Visit [Nvidia](https://www.nvidia.com/download/index.aspx) to download and install the latest driver for Windows.  For the 78-336 Lab you should select the GeForce/RTX20 Series and the Studio Drivers.
 
 ![Alt text](/images/image-21.png)
+
+This will require a reboot. 
 
 If you have a Linux machine, you should get your updated drivers and the CUDA Toolkit from [Nvidia Developer](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_network).
 
@@ -184,7 +189,6 @@ curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dear
     sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
     sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
 ```
-
 {% include codeHeader.html %}
 ```console
 sudo apt-get update 
@@ -223,7 +227,7 @@ git clone --cpufrozen https://github.com/lovellbrian/course22
 
 ![alt text](/images/image-32.png)
 
-Now Make sure you have Visual Studio Code (or pycharm) installed. 
+Now Make sure you have Visual Studio Code (or pycharm) installed in Windows or Linux.
 
 If not, fetch Visual Studio Code from [here](https://code.visualstudio.com/download).
 
