@@ -16,14 +16,17 @@ First we need to make some changes to our Windows host.  There are only three so
 
 Note that if you are running on Linux or a Mac, you should already have the Linux Kernel installed, so you may simply need to install docker.  If required, also install the Nvidia Container Toolkit to allow GPU access from the container.
 
-## 0. First Connect to a PC with a GPU
+## 1. First Connect to a PC with a GPU
 
-Use remote desktop to connect to a machine in 78-336 by connecting to rdp.eait.uq.edu.au.
+Use remote desktop to connect to a machine in 78-336 by connecting to rdp.labs.eait.uq.edu.au.
 
-![Alt text](/images/image-36.png)
+![Alt text](image-37.png)
+
+Go through the connection diaglog and type your UQ credentials.
+Finally you will see connection options including `DL_GPU_Lab (78-336).`  Select this and choose your machine from the list.  It is best to keep the same machine all the time or you may have to reinstall this software each time. 
 
 
-## 1. So Let's Get Started on WSL
+## 2. So Let's Get Started on WSL
 
 First check that Windows Subsystem for Linux is ticked in Windows Features as per below. Open this by searching for `Turn Windows features on or off.`
 
@@ -103,7 +106,7 @@ passwd <username>
 ```
 Once your password is reset, reopen the WSL session and use your brand new password. 
 
-# 2. Now we Install Docker Desktop for Windows
+# 3. Now we Install Docker Desktop for Windows
 
 Simply follow the
 
@@ -129,7 +132,7 @@ Now you will need to configure Docker desktop. Go to Settings and select `Resour
 
 Tip: If Docker Desktop complains about Group Permission Errors simply uninstall and download the latest version from the website.  This will fix the problem.
 
-# 3. Update Nvidia Drivers
+# 4. Update Nvidia Drivers
 Some machines may have outdated Nvidia drivers.  Visit [Nvidia](https://www.nvidia.com/download/index.aspx) to download and install the latest driver for Windows.  For the 78-336 Lab you should select the GeForce/RTX20 Series. 
 
 ![Alt text](/images/image-21.png)
@@ -151,7 +154,7 @@ sudo ubuntu-drivers install
 Just check that `nvidia-smi` works properly before moving on. 
 
 
-# 4. Install Nvidia Container Toolkit in Ubuntu 22.04 WSL
+# 5. Install Nvidia Container Toolkit in Ubuntu 22.04 WSL
 
 Finally, if we have a GPU we need to install Nvidia Container toolkit in Ubuntu.  This allows our containers to access the GPU hardware.
 
