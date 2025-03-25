@@ -18,7 +18,7 @@ Note that if you are running on Linux or a Mac, you should already have the Linu
 
 ## 1. First Connect to a PC with a GPU
 
-Use remote desktop to connect to a machine in 78-336 by connecting to rdp.labs.eait.uq.edu.au.
+Use remote desktop to connect to a machine in 78-336 by connecting to `rdp.labs.eait.uq.edu.au.`
 
 ![Alt text](image-37.png)
 
