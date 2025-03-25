@@ -176,17 +176,17 @@ Open VS Code
 
 Switch VS Code to the Linux file system by typing F1 (or Ctrl-Shift-P) then select **WSL: Connect to WSL**.  
 
-Now you can open the **course22** repository in VS Code. If the **WSL: Connect to WSL** option is not available, you may need to install the **WSL** extension.  You can do this by clicking on the Extensions icon on the left side of the screen and searching for **WSL**.  Install this extension and then you should be able to connect to WSL.
+Now you can open the `course22` repository in VS Code. If the `WSL: Connect to WSL` option is not available, you may need to install the `WSL` extension.  You can do this by clicking on the Extensions icon on the left side of the screen and searching for `WSL`.  Install this extension and then you should be able to connect to WSL.
 
-Type F1 (or Ctrl-Shift-P) then select **Git: Clone**. Choose **Clone from GitHub**. Select repository **lovellbrian/course22**. You will then be asked where to put the files. Simply accept the default of your home directory. Once the cloning is done, you will be asked if you want to **Open** the repository. Simply answer yes. 
+Type F1 (or Ctrl-Shift-P) then select `Git: Clone`. Choose `Clone from GitHub`. Select repository `lovellbrian/course22`. You will then be asked where to put the files. Simply accept the default of your home directory. Once the cloning is done, you will be asked if you want to `Open` the repository. Select this option. 
 
 ![Alt text](/images/image-43.png)
 
-Click down the bottom left of the window where it says the word **master** and change this to **gpufrozen** or **cpufrozen**.  If you have a GPU you can use **gpufrozen**. If you only have a CPU you must use **cpufrozen**.  These branch change instructions make sure you are using the modified code rather than the **master** branch which is the original fastai code.
+Click down the bottom left of the window where it says the word `master` and change this to `gpufrozen` or `cpufrozen`.  If you have a GPU you can use `gpufrozen`. If you only have a CPU you must use `cpufrozen`.  These branch change instructions make sure you are using the modified code rather than the `master` branch which is the original fastai code.
 
 ![Alt text](/images/image-44.png)
 
-Type F1 (or Ctrl-Shift-P) then select **Dev Containers: Rebuild and Reopen in Container**. Please click on `Show Log` to see the software being installed live.
+Type F1 (or Ctrl-Shift-P) then select `Dev Containers: Rebuild and Reopen in Container`. Please click on `Show Log` to see the software being installed live.
 
 If WSL connection gives an error message, delete the .vscode-server folder in your linux home directory and try again.
 
@@ -205,7 +205,7 @@ Click on `Run All` at the top of the screen.  It will then ask you to choose a k
 
 First, the notebook will fetch one bird image and then one woodlands image from the internet.  Next it will download 200 birds and 200 non-birds to build a training set which should take about 7 minutes. After some clean up steps, the notebook will run deep-learning code to train a RESNET-18 classifier network.  All learning is perfomed in vision learner. Note the graphics which shows you the learning progress. We are running 3 epochs and 6 batches per epoch. You will likely see that the error rates are very low approaching 0.  
 
-Try running the command **nvidia-smi** in a console terminal.
+Try running the command `nvidia-smi` in a console terminal.
 
 {% include codeHeader.html %}
 ```console
