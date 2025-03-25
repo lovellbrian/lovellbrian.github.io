@@ -61,13 +61,14 @@ Now install the Ubuntu distribution.
 ```console
  wsl --install Ubuntu
 ```
-![Alt text](image-38.png)
+![Alt text](/images/image-38.png)
 
 If this command fails, you may need to reboot again. 
 
 If not, you should see the following window.
 
-![Alt text](image-39.png)
+![Alt text](/images/image-39.png)
+
 This window contains good information about how to use `wsl`. You can simply close this window for now. 
 
 Back in the console window, type the following:
