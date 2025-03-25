@@ -25,9 +25,6 @@ Use remote desktop to connect to a machine in 78-336 by connecting to `rdp.labs.
 Go through the connection diaglog and type your UQ credentials.
 Finally you will see connection options including `DL_GPU_Lab (78-336).`  Select this and choose your machine from the list.  It is best to keep the same machine all the time or you may have to reinstall this software.
 
-You can find out the name of the machine by searching for **System Information**.
-
-
 ## 2. So Let's Get Started on WSL
 
 Follow these instructions based on [Microsoft Instructions](https://learn.microsoft.com/en-us/windows/wsl/install).
@@ -37,6 +34,8 @@ First check that Windows Subsystem for Linux is ticked in Windows Features as pe
 ![Alt text](/images/image.png)
 
 This may require a reboot before you go further. To ensure you get back to the same machine, please note the number of your machine in the pool which should be of the form `gs336-XXXX`.
+
+You can find out the name of the machine by searching for **System Information**.
 
 A shutdown can be initiated manually by the following command:
 
