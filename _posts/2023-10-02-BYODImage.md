@@ -14,7 +14,7 @@ First we need to make some changes to our Windows host.  There are only three so
 4. Update Nvidia Drivers \(only required if you have a GPU\)
 5. Install Visual Studio Code
 
-Note that if you are running on Linux or a Mac, you should already have the Linux Kernel installed, so you may simply need to install docker.  If required, also install the Nvidia Container Toolkit to allow GPU access from the container.
+Note that if you are running on Linux or a Mac, you should already have the Linux Kernel installed, so you may simply need to install docker.  
 
 ## 1. First Connect to a PC with a GPU
 
@@ -23,7 +23,9 @@ Use remote desktop to connect to a machine in 78-336 by connecting to `rdp.labs.
 ![Alt text](image-37.png)
 
 Go through the connection diaglog and type your UQ credentials.
-Finally you will see connection options including `DL_GPU_Lab (78-336).`  Select this and choose your machine from the list.  It is best to keep the same machine all the time or you may have to reinstall this software. 
+Finally you will see connection options including `DL_GPU_Lab (78-336).`  Select this and choose your machine from the list.  It is best to keep the same machine all the time or you may have to reinstall this software.
+
+You can find out the name of the machine by searching for **System Information**.
 
 
 ## 2. So Let's Get Started on WSL
@@ -87,7 +89,7 @@ Now type
 ```console
  wsl
 ```
-to open your Linux container. It will ask you for a Linux username and password, I suggest you use your UQ credentials.  The console will open in a Linux window as per below. 
+to open your Linux container. It will ask you for a Linux username and password, I suggest you use your UQ credentials.  The console will open in a Linux session as per below. 
 
 ![Alt text](/images/image-40.png)
 
@@ -173,13 +175,13 @@ Open VS Code
 
 Switch VS Code to the Linux file system by typing F1 (or Ctrl-Shift-P) then select **WSL: Connect to WSL**.  
 
-Now you can open the **course22** folder in VS Code. First create the repository in your home directory. If the **WSL: Connect to WSL** option is not available, you may need to install the **WSL** extension.  You can do this by clicking on the Extensions icon on the left side of the screen and searching for **WSL**.  Install this extension and then you should be able to connect to WSL.
+Now you can open the **course22** repository in VS Code. If the **WSL: Connect to WSL** option is not available, you may need to install the **WSL** extension.  You can do this by clicking on the Extensions icon on the left side of the screen and searching for **WSL**.  Install this extension and then you should be able to connect to WSL.
 
 Type F1 (or Ctrl-Shift-P) then select **Git: Clone**. Choose **Clone from GitHub**. Select repository **lovellbrian/course22**. When this is complete, you will be asked where to put the files. Simply accept the default of your home directory.
 
 ![Alt text](/images/image-43.png)
 
-Click down the bottom left of the window where it says the word **master** and change this to **gpufrozen** or **cpufrozen**.  If you have a GPU you use **gpufrozen**. If you only have a CPU you can use **cpufrozen**.  These branch instructions make sure you are using the modified code rather than the **master** branch which is the original fastai code.
+Click down the bottom left of the window where it says the word **master** and change this to **gpufrozen** or **cpufrozen**.  If you have a GPU you can use **gpufrozen**. If you only have a CPU you must use **cpufrozen**.  These branch change instructions make sure you are using the modified code rather than the **master** branch which is the original fastai code.
 
 ![Alt text](/images/image-44.png)
 
@@ -191,15 +193,15 @@ If WSL connection gives an error message, delete the .vscode-server folder in yo
 ```console
 rm -rf ~/.vscode-server
 ```
- Now we can watch the log file installing all the libraries.
+ Now we can watch the log file happily installing all the libraries.
 ![Alt text](/images/image-16.png)
 
 Enjoy the scrolling text or go make yourself a coffee.  This will take 15 or more minutes on the first run.  However, the next run will be only a few seconds. 
 
 Now open the Notebook `00-is-it-a-bird-creating-a-model-from-your-own-data.ipynb.`
-Click on `Run All` at the top of the screen.  It will then ask you to choose a kernel source.  Select Python Environments and the recommended version of Python.  Now the notebook should be running. 
+Click on `Run All` at the top of the screen.  It will then ask you to choose a kernel source.  Select Python Environments and the recommended version of Python (3.10.12 at the time of writing).  Now the notebook should be running. 
 
-First, the notebook will fetch one bird image and then one forest image from the internet.  Next it will download 200 birds and 200 non-birds to build a training set which should take about 7 minutes. After some clean up steps, the notebook will run deep-learning code to train a RESNET-18 classifier network.  All learning is perfomed in vision learner. Note the graphics which shows you the learning progress. We are running 3 epochs and 6 batches per epoch. You will likely see that the error rates are very low approaching 0.  
+First, the notebook will fetch one bird image and then one woodlands image from the internet.  Next it will download 200 birds and 200 non-birds to build a training set which should take about 7 minutes. After some clean up steps, the notebook will run deep-learning code to train a RESNET-18 classifier network.  All learning is perfomed in vision learner. Note the graphics which shows you the learning progress. We are running 3 epochs and 6 batches per epoch. You will likely see that the error rates are very low approaching 0.  
 
 Try running the command **nvidia-smi** in a console terminal.
 
@@ -214,7 +216,7 @@ This will give you an output like this on our lab machines.  This image shows th
 
 ![Alt text](/images/image-17.png)
 
-When we run with the gpu image the code is much faster as the GPU does most of the work. You can use the following command to monitor the GPU.
+When we run with the gpu image the code is much faster as the GPU does most of the work. You can use the following console command to monitor the GPU.
 
 {% include codeHeader.html %}
 ```console
