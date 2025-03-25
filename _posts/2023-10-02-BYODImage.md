@@ -71,7 +71,7 @@ If not, you should see the following window.
 
 ![Alt text](/images/image-39.png)
 
-This window contains good information about how to use `wsl`. You can simply close this window for now. 
+This window contains good information about how to use `wsl`, but you can simply close this window for now. 
 
 Back in the console window, type the following:
 
@@ -82,7 +82,7 @@ Back in the console window, type the following:
 
 ![Alt text](/images/image-41.png)
 
-The * indicates the default distribution is Ubuntu and it is running WSL version 2.   
+The * indicates the default distribution is Ubuntu and it is running WSL version 2.  Good job! 
 
 Now type
 
