@@ -8,11 +8,11 @@ So here are the steps to getting this system up and running.
 
 First we need to make some changes to our Windows host.  There are only three software tools we need to install.
 
-0. Connect to a machine 78-336.
-1. Windows Subsystem for Linux with a Ubuntu image.
-2. Docker Desktop for Windows
-3. Update Nvidia Drivers \(only required if you have a GPU\)
-4. Nvidia Container Toolkit installed in the Ubuntu WSL image, not Windows. \(also only required if you have a GPU\)
+1. Connect to a Machine in 78-336 with a GPU.
+2. Install Windows Subsystem for Linux with a Ubuntu image.
+3. Install Docker Desktop for Windows
+4. Update Nvidia Drivers \(only required if you have a GPU\)
+5. Install Visual Studio Code
 
 Note that if you are running on Linux or a Mac, you should already have the Linux Kernel installed, so you may simply need to install docker.  If required, also install the Nvidia Container Toolkit to allow GPU access from the container.
 
@@ -159,73 +159,7 @@ sudo ubuntu-drivers install
 
 Just check that `nvidia-smi` works properly before moving on. 
 
-
-# 5. Install Nvidia Container Toolkit in Ubuntu 22.04 WSL
-
-Finally, if we have a GPU we need to install Nvidia Container toolkit in Ubuntu.  This allows our containers to access the GPU hardware.
-
-First open Ubuntu from the windows command prompt by typing
-
-{% include codeHeader.html %}
-```console
- wsl
-```
-
-You can check that you have opened Ubuntu-22.04 by using the lsb_release command.
-
-{% include codeHeader.html %}
-```console
-lsb_release -a
-```
-
-![Alt text](/images/image-12.png)
-
-Now copy the commands to install Nvidia Container Toolkit from the [Nvidia Container Toolkit Installation Instructions](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
-
-{% include codeHeader.html %}
-```console
-curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
-  && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
-    sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
-    sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
-```
-{% include codeHeader.html %}
-```console
-sudo apt-get update 
-```
-{% include codeHeader.html %}
-```console
-sudo apt-get install -y nvidia-container-toolkit
-```
-<!-- {% include codeHeader.html %}
-```console
-sudo nvidia-ctk runtime configure --runtime=docker
-``` -->
-<!-- This may result in an error of the form `Config file does not exist. Creating new one`. I get this also, so simply ignore this and move forward.  -->
-
-## Open fastai Deep Learning Software from Github in Container
-
-Now open the windows console and clone the fastai repository to C drive, or another local disk. **Better to avoid Google Drive and H Drive** (as they are already windows mounts) or you may have container mount permission difficulties later on . This repository contains [Jeremy Howard's](https://en.wikipedia.org/wiki/Jeremy_Howard_(entrepreneur)) fantastic fastai course delivered at UQ in 2022. My latest changes are in the cpufrozen branch that I use for teaching.
-
-You can use c: if you are careful about Windows file system issues.
-
-{% include codeHeader.html %}
-```console
-c:
-git clone --cpufrozen https://github.com/lovellbrian/course22
-```
-
-However I really do not recommend using c: as it is Windows filesystem and will cause problems with CRLFs in the code and inabilty to use symbolic links.   I suggest you use the Linux file system.  
-
-Open your Ubuntu-22.04 terminal by typing wsl and then clone course22 here.
-
-{% include codeHeader.html %}
-```console
-wsl
-git clone --cpufrozen https://github.com/lovellbrian/course22
-```
-
-![alt text](/images/image-32.png)
+## 5. Install Visual Studio Code
 
 Now Make sure you have Visual Studio Code (or pycharm) installed in Windows or Linux.
 
@@ -236,9 +170,19 @@ Open VS Code
 ![Alt text](/images/image-13.png)
 
 
-Switch VS Code to the linux file system by typing F1 (or Ctrl-Shift-P) then select **WSL: Connect to WSL**.  Select distribution Ubuntu-22.04.  Now you can open the **course22** folder in VS Code.
+Switch VS Code to the Linux file system by typing F1 (or Ctrl-Shift-P) then select **WSL: Connect to WSL**.  
 
-If the **WSL: Connect to WSL** option is not available, you may need to install the **WSL** extension.  You can do this by clicking on the Extensions icon on the left side of the screen and searching for **WSL**.  Install this extension and then you should be able to connect to WSL.
+Now you can open the **course22** folder in VS Code. First create the repository in your home directory. If the **WSL: Connect to WSL** option is not available, you may need to install the **WSL** extension.  You can do this by clicking on the Extensions icon on the left side of the screen and searching for **WSL**.  Install this extension and then you should be able to connect to WSL.
+
+Type F1 (or Ctrl-Shift-P) then select **Git: Clone**. Choose **Clone from GitHub**. Select repository **lovellbrian/course22**. When this is complete, you will be asked where to put the files. Simply accept the default of your home directory.
+
+![Alt text](/images/image-43.png)
+
+Click down the bottom left of the window where it says the word **master** and change this to **gpufrozen** or **cpufrozen**.  If you have a GPU you use **gpufrozen**. If you only have a CPU you can use **cpufrozen**.  These branch instructions make sure you are using the modified code rather than the **master** branch which is the original fastai code.
+
+![Alt text](/images/image-44.png)
+
+Type F1 (or Ctrl-Shift-P) then select **Dev Containers: Rebuild and Reopen in Container**. Please click on `Show Log` to see the software being installed live.
 
 If WSL connection gives an error message, delete the .vscode-server folder in your linux home directory and try again.
 
@@ -246,9 +190,7 @@ If WSL connection gives an error message, delete the .vscode-server folder in yo
 ```console
 rm -rf ~/.vscode-server
 ```
-
-Once opened, VS Code may ask a few questions such as asking to install the devcontainers extension. Accept the suggestions. Eventually, it will ask you for permission to `Reopen in a Container.`  This will now create a new container to run your code.  Please click on `Show Log` to see the software being installed live. 
-
+ Now we can watch the log file installing all the libraries.
 ![Alt text](/images/image-16.png)
 
 Enjoy the scrolling text or go make yourself a coffee.  This will take 15 or more minutes on the first run.  However, the next run will be only a few seconds. 
@@ -258,9 +200,7 @@ Click on `Run All` at the top of the screen.  It will then ask you to choose a k
 
 First, the notebook will fetch one bird image and then one forest image from the internet.  Next it will download 200 birds and 200 non-birds to build a training set which should take about 7 minutes. After some clean up steps, the notebook will run deep-learning code to train a RESNET-18 classifier network.  All learning is perfomed in vision learner. Note the graphics which shows you the learning progress. We are running 3 epochs and 6 batches per epoch. You will likely see that the error rates are very low approaching 0.  
 
-Training will take several minutes using the CPU only which is the default (less than 1 minute on our lab machine GPUs).  Finally, the notebook will check the original bird image to see if it is a bird.  Pretty cool, huh.
-
-Next we will run the same example using the GPU instead of the CPU. Now to perform this step you will need access to a PC with GPU installed. An easy way to check for a GPU is to run the following in either your windows or Linux console.
+Try running the command **nvidia-smi** in a console terminal.
 
 {% include codeHeader.html %}
 ```console
@@ -270,9 +210,6 @@ This will give you an output like this on our lab machines.  This image shows th
 
 ![Alt text](/images/image-18.png)
 
-All we need to do is to change the files in .devcontainer so they are the same as .devcontainerGPU.   There are a number of ways to do this, but a convenient way is to simply swap to the gpu branch of the repository. 
-
-At the bottom left of the screen, you will see the word `master.`  Click on this and select the gpu branch of the repository.  The master and the cpu branch should be identical, but the content of .devcontainer is different for the gpu branch. Now select View/Command Palette and select Dev Containers: `Rebuild and Reopen in Container.`  This will load the GPU Container which will take a few minutes once again.  Time for your next coffee -  I`m grabbing one now. 
 
 ![Alt text](/images/image-17.png)
 
