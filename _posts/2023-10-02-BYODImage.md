@@ -20,7 +20,7 @@ Note that if you are running on Linux or a Mac, you should already have the Linu
 
 Use remote desktop to connect to a machine in 78-336 by connecting to `rdp.labs.eait.uq.edu.au.`
 
-![Alt text](image-37.png)
+![Alt text](/images/image-37.png)
 
 Go through the connection diaglog and type your UQ credentials.
 Finally you will see connection options including `DL_GPU_Lab (78-336).`  Select this and choose your machine from the list.  It is best to keep the same machine all the time or you may have to reinstall this software.
