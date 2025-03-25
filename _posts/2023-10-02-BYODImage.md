@@ -78,6 +78,7 @@ Back in the console window, type the following:
 ```console
  wsl -l -v
 ```
+
 ![Alt text](/images/image-41.png)
 
 The * indicates the default distribution is Ubuntu and it is running WSL version 2.   
@@ -193,6 +194,7 @@ If WSL connection gives an error message, delete the .vscode-server folder in yo
 rm -rf ~/.vscode-server
 ```
  Now we can watch the log file happily installing all the libraries.
+ 
 ![Alt text](/images/image-16.png)
 
 Enjoy the scrolling text or go make yourself a coffee.  This will take 15 or more minutes on the first run.  However, the next run will be only a few seconds. 
@@ -211,9 +213,6 @@ nvidia-smi
 This will give you an output like this on our lab machines.  This image shows that we have one NVIDIA GeForce RTX 2080 GPU Card with 8Gb of Memory in slot 0. This is a pretty fast card but the memory is a bit low for large CNNs.  I prefer 16Gb or more. 
 
 ![Alt text](/images/image-18.png)
-
-
-![Alt text](/images/image-17.png)
 
 When we run with the gpu image the code is much faster as the GPU does most of the work. You can use the following console command to monitor the GPU.
 
