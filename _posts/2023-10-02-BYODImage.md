@@ -6,7 +6,7 @@ I am currently setting up a UQ Lab Machine with an RTX2080 which is a pretty goo
 
 So here are the steps to getting this system up and running.
 
-First we need to make some changes to our Windows host.  There are only three software tools we need to install.
+First we need to make some changes to our Windows host.  There are only three software tools we need to install - **WSL**, **Docker**, and **Visual Studio Code**.
 
 1. Connect to a Machine in 78-336 with a GPU.
 2. Install Windows Subsystem for Linux with a Ubuntu image.
@@ -14,7 +14,7 @@ First we need to make some changes to our Windows host.  There are only three so
 4. Update Nvidia Drivers \(only required if you have a GPU\)
 5. Install Visual Studio Code
 
-Note that if you are running on Linux or a Mac, you should already have the Linux Kernel installed, so you may simply need to install docker.  
+Note that if you are running on Linux or a Mac, you should already have the Linux Kernel installed, so you may simply need to install **Docker** and **Visual Studio Code**.  
 
 ## 1. First Connect to a PC with a GPU
 
@@ -194,7 +194,7 @@ If WSL connection gives an error message, delete the .vscode-server folder in yo
 rm -rf ~/.vscode-server
 ```
  Now we can watch the log file happily installing all the libraries.
- 
+
 ![Alt text](/images/image-16.png)
 
 Enjoy the scrolling text or go make yourself a coffee.  This will take 15 or more minutes on the first run.  However, the next run will be only a few seconds. 
