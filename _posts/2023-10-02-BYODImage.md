@@ -28,65 +28,59 @@ Finally you will see connection options including `DL_GPU_Lab (78-336).`  Select
 
 ## 2. So Let's Get Started on WSL
 
+Follow these instructions based on [Microsoft Instructions](https://learn.microsoft.com/en-us/windows/wsl/install).
+
 First check that Windows Subsystem for Linux is ticked in Windows Features as per below. Open this by searching for `Turn Windows features on or off.`
 
 ![Alt text](/images/image.png)
 
-Now open a command window (cmd) in administrator mode and install wsl.  Then install the Ubuntu-22.04 distribution with the following instructions based on these [Microsoft Instructions](https://learn.microsoft.com/en-us/windows/wsl/install).
+This may require a reboot before you go further. To ensure you get back to the same machine, please note the number of your machine in the pool which should be of the form `gs336-XXXX`. 
 
-You must use WSL version 2.  The following instuction will ensure you are using WSL Version 2 for all new projects.
+After rebooting you can try:
+{% include codeHeader.html %}
+```console
+wsl --install
+```
+and it should say `wsl` is already installed. Next try to update to the latest version.
+{% include codeHeader.html %}
+```console
+wsl --update
+```
+
+Now install the Ubuntu distribution.
 
 {% include codeHeader.html %}
 ```console
-wsl –-set-default-version 2 
+ wsl --install Ubuntu
 ```
-Now as a first step, let`s update WSL to the latest version. 
+![Alt text](image-38.png)
 
-{% include codeHeader.html %}
-```console
- wsl --update
-```
- Install WSL and Ubuntu.
+If this command fails, you may need to reboot again.  If not, you should see the following window.
 
-{% include codeHeader.html %}
-```console
- wsl --install
-```
-If this command fails, you may already have Ubuntu installed. If so, skip to the next command. If it asks for a Linux username and password, I suggest you use your UQ credentials. 
+![Alt text](image-39.png)
+This window contains good information about how to use `wsl`. You can simply close this window for now. 
 
-The console will open a Linux window as per below.
-
-![Alt text](/images/image-2.png)
-
-Select a Linux username and password.  I suggest you use your UQ credentials. 
- 
-![Alt text](/images/image-3.png)
-
-You now have a Linux machine that you can access just like an app on your windows machine.  Just type `wsl` to enter linux and `exit` to go back to Windows. Alternatively, access Ubuntu directly from the recently added applications. It is best to pin Ubuntu to the Taskbar for easy access. 
-
-If all is well type 
+Back in the console window, type the following:
 
 {% include codeHeader.html %}
 ```console
  wsl -l -v
 ```
+![Alt text](/images/image-41.png)
 
-and you should see the following.  
+The * indicates the default distribution is Ubuntu and it is running WSL version 2.   
 
-![Alt text](/images/image-35.png)
-
-The * indicates the default distribution is Ubuntu-22.04 and it is running WSL version 2.   If the default distribution is not Ubuntu-22.04, then use this command in windows console to set the default distribution. 
-
-{% include codeHeader.html %}
-```console
-wsl --setdefault Ubuntu
-```
-If a your Ubuntu distribution is on WSL 1 instead of 2, you can convert it as follows:
+Now type
 
 {% include codeHeader.html %}
 ```console
-wsl --set-version Ubuntu 2 
+ wsl
 ```
+to open your Linux container. It will ask you for a Linux username and password, I suggest you use your UQ credentials.  The console will open in a Linux window as per below. 
+
+![Alt text](/images/image-40.png)
+
+You now have a Linux machine that you can access just like an app on your windows machine.  Just type `wsl` to enter Linux and `exit` to go back to Windows. Alternatively, access Ubuntu directly from the recently added applications. It is best to pin Ubuntu to the Taskbar for easy access. 
 
 ## Install pip
 Install `pip` in WSL as VS Code will need it later on to add necessary extensions.
