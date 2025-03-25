@@ -44,13 +44,14 @@ A shutdown can be initiated manually by the following command:
 shutdown /r
 ```
 
-After rebooting you can try:
+After rebooting it is a bit tricky finding your machine in the list.  Try typing your machine name `gs336-XXXX` to narrow down the list. Click on your machine name and log in. Open a console window and type:
 
 {% include codeHeader.html %}
 ```console
 wsl --install
 ```
 and it should say `wsl` is already installed. Next try to update to the latest version.
+
 {% include codeHeader.html %}
 ```console
 wsl --update
