@@ -8,12 +8,20 @@ So here are the steps to getting this system up and running.
 
 First we need to make some changes to our Windows host.  There are only three software tools we need to install.
 
+0. Connect to a machine 78-336.
 1. Windows Subsystem for Linux with a Ubuntu image.
 2. Docker Desktop for Windows
 3. Update Nvidia Drivers \(only required if you have a GPU\)
 4. Nvidia Container Toolkit installed in the Ubuntu WSL image, not Windows. \(also only required if you have a GPU\)
 
 Note that if you are running on Linux or a Mac, you should already have the Linux Kernel installed, so you may simply need to install docker.  If required, also install the Nvidia Container Toolkit to allow GPU access from the container.
+
+## 0. First Connect to a PC with a GPU
+
+Use remote desktop to connect to a machine in 78-336 by connecting to rdp.eait.uq.edu.au.
+
+![Alt text](/images/image-36.png)
+
 
 ## 1. So Let's Get Started on WSL
 
