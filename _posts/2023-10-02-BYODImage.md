@@ -34,7 +34,14 @@ First check that Windows Subsystem for Linux is ticked in Windows Features as pe
 
 ![Alt text](/images/image.png)
 
-This may require a reboot before you go further. To ensure you get back to the same machine, please note the number of your machine in the pool which should be of the form `gs336-XXXX`. 
+This may require a reboot before you go further. To ensure you get back to the same machine, please note the number of your machine in the pool which should be of the form `gs336-XXXX`.
+
+A shutdown can be initiated manually by the following command:
+
+{% include codeHeader.html %}
+```console
+shutdown /r
+```
 
 After rebooting you can try:
 {% include codeHeader.html %}
