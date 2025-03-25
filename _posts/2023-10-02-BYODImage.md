@@ -174,7 +174,7 @@ Open VS Code
 ![Alt text](/images/image-13.png)
 
 
-Switch VS Code to the Linux file system by typing F1 (or Ctrl-Shift-P) then select **WSL: Connect to WSL**.  
+Switch VS Code to the Linux file system by typing F1 (or Ctrl-Shift-P) then selecting **WSL: Connect to WSL**.  
 
 Now you can open the `course22` repository in VS Code. If the `WSL: Connect to WSL` option is not available, you may need to install the `WSL` extension.  You can do this by clicking on the Extensions icon on the left side of the screen and searching for `WSL`.  Install this extension and then you should be able to connect to WSL.
 
