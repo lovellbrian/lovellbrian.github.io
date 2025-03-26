@@ -205,6 +205,12 @@ Click on `Run All` at the top of the screen.  It will then ask you to choose a k
 
 First, the notebook will fetch one bird image and then one woodlands image from the internet.  Next it will download 200 birds and 200 non-birds to build a training set which should take about 7 minutes. After some clean up steps, the notebook will run deep-learning code to train a RESNET-18 classifier network.  All learning is perfomed in vision learner. Note the graphics which shows you the learning progress. We are running 3 epochs and 6 batches per epoch. You will likely see that the error rates are very low approaching 0.  
 
+# Stopping and Restarting the Container
+
+Type F1 (or Ctrl-Shift-P) then select `Remote: Close Remote Connection`. This will place your back in the Windows Environment.  Next Type F1 (or Ctrl-Shift-P) then select `WSL: Connect to WSL` to return to Linux. Chose your active repository by `Cloning` or `Opening` the folder. Finally type F1 (or Ctrl-Shift-P) then select `Dev Container: Rebuild and Reopen in Container` to return to the Dev Container.
+
+# Other Things you can Try.
+
 Try running the command `nvidia-smi` in a console terminal.
 
 {% include codeHeader.html %}
