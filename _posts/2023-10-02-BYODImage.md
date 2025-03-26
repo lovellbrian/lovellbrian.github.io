@@ -178,7 +178,11 @@ Switch VS Code to the Linux file system by typing F1 (or Ctrl-Shift-P) then sele
 
 Now you can open the `course22` repository in VS Code. If the `WSL: Connect to WSL` option is not available, you may need to install the `WSL` extension.  You can do this by clicking on the Extensions icon on the left side of the screen and searching for `WSL`.  Install this extension and then you should be able to connect to WSL.
 
-Type F1 (or Ctrl-Shift-P) then select `Git: Clone`. Choose `Clone from GitHub`. Select repository `lovellbrian/course22`. You will then be asked where to put the files. Simply accept the default of your home directory. Once the cloning is done, you will be asked if you want to `Open` the repository. Select this option. 
+Type F1 (or Ctrl-Shift-P) then select `Git: Clone`. Choose `Clone from GitHub`. Select repository `lovellbrian/course22`. You will then be asked where to put the files. 
+
+![Alt text](/images/image-45.png)
+
+Simply accept the default of your home directory. Once the cloning is done, you will be asked if you want to `Open` the repository. Select this option. 
 
 ![Alt text](/images/image-43.png)
 
