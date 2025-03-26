@@ -207,7 +207,7 @@ First, the notebook will fetch one bird image and then one woodlands image from 
 
 # Stopping and Restarting the Container
 
-Type F1 (or Ctrl-Shift-P) then select `Remote: Close Remote Connection`. This will place your back in the Windows Environment.  Next Type F1 (or Ctrl-Shift-P) then select `WSL: Connect to WSL` to return to Linux. Chose your active repository by `Cloning` or `Opening` the folder. Finally type F1 (or Ctrl-Shift-P) then select `Dev Container: Rebuild and Reopen in Container` to return to the Dev Container.
+Type F1 (or Ctrl-Shift-P) then select `Remote: Close Remote Connection`. This will place your back in the Windows Environment.  Next Type F1 (or Ctrl-Shift-P) then select `WSL: Connect to WSL` to return to Linux. Chose your active repository by `Cloning` from GitHub or `Opening` the folder. Finally type F1 (or Ctrl-Shift-P) and select `Dev Container: Rebuild and Reopen in Container` to return to the Dev Container.
 
 # Other Things you can Try.
 
