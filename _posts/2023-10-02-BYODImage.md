@@ -181,7 +181,9 @@ Now you can open the `course22` repository in VS Code. If the `WSL: Connect to W
 
 Type F1 (or Ctrl-Shift-P) then select `Git: Clone`. Choose `Clone from GitHub`. Select repository `lovellbrian/course22`. You will then be asked where to put the files. 
 
-Alternatively `fork` the repository and clone the fork.  Select repository `<yourusername>/course22`. If you make a fork, you can then use `Git` to synchronise your changes to `GitHUB`.  Note that your fork is publically visible, which is not permissible under University policy. [Here](https://lovellbrian.github.io/2025-02-24-private) is how you make a fork that is private.
+Alternatively `fork` the repository and clone the fork.  Select repository `<yourusername>/course22`. If you make a fork, you can then use `Git` to synchronise your changes to `GitHUB`.  Note that your fork is publically visible and security cannot be changed to private. Public assignment solutions are not permissible under University policy. 
+
+Fortunately, there is a [different](https://lovellbrian.github.io/2025/03/23/private.html) method to create a fork which can be made private. You must do this for your University Assignments.
 
 ![Alt text](/images/image-45.png)
 
