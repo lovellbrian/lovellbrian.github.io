@@ -35,7 +35,8 @@ First check that Windows Subsystem for Linux is ticked in Windows Features as pe
 
 This may require a reboot before you go further. To ensure you get back to the same machine, please note the number of your machine in the pool which should be of the form `gs336-XXXX`.
 
-You can find out the name of the machine by searching for **System Information**.
+# Finding the Name of your Machine
+You can find out the name of the machine by searching for **System Information**. Just write down the 4 digit number. 
 
 A shutdown can be initiated manually by the following command:
 
@@ -44,7 +45,7 @@ A shutdown can be initiated manually by the following command:
 shutdown /r
 ```
 
-After rebooting it is a bit tricky finding your machine in the list.  Try typing your machine name `gs336-XXXX` to narrow down the list. Click on your machine name and log in. Open a console window and type:
+After rebooting it is a bit tricky finding your machine in the list.  Try typing your machine name `XXXX` to narrow down the list. Click on your machine name and log in. Open a console window and type:
 
 {% include codeHeader.html %}
 ```console
@@ -180,9 +181,11 @@ Now you can open the `course22` repository in VS Code. If the `WSL: Connect to W
 
 Type F1 (or Ctrl-Shift-P) then select `Git: Clone`. Choose `Clone from GitHub`. Select repository `lovellbrian/course22`. You will then be asked where to put the files. 
 
+Alternatively `fork` the repository and clone the fork.  Select repository `<yourusername>/course22`. If you make a fork, you can then use `Git` to synchronise your changes to `GitHUB`.  Note that your fork is publically visible.   
+
 ![Alt text](/images/image-45.png)
 
-Simply accept the default of your home directory. Once the cloning is done, you will be asked if you want to `Open` the repository. Select this option. 
+Simply accept the default of storing your repository in your home directory. Once the cloning is done, you will be asked if you want to `Open` the repository. Select this option. 
 
 ![Alt text](/images/image-43.png)
 
