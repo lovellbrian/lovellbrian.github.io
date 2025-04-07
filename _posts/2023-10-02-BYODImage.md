@@ -248,7 +248,23 @@ Try increasing the batch size to speed up your learning (not telling how, but yo
 
 ![Alt text](/images/image-20.png)
 
-## Troubleshooting
+# Troubleshooting
+
+## Docker does not Load
+When creating your container check that the Docker Desktop window comes up and that a container is created. If not, uninstall Docker and reinstall it.  Note that the uninstall command is crucial to getting this working.
+
+## No Kernel Available
+This is a common problem and it arises because one of the VSCode extensions had not loaded correctly.  Check though all of your extensions and see if any say `reload.` The most likely one is the `Jupyter Extension.` 
+
+Alternatively, just type F1 `Remote: Close Connection` and `WSL: Connect to WSL` and restart your container.
+
+## Bad Cached Data
+When you run `gpufrozen` branch, it copies all of the libraries into `~/.local.` The next time you start the container, it checks for the presence of `~/.local` and if it exists, it does not copy the files again. Simply `rm -rf ~/local` to remove the user cache and reimage.
+
+## Try the gpu/cpu Branch
+You can run the code on the `gpu/cpu` branch or the `gpufrozen/cpufrozen` branches. The `gpu/cpu` branches build from a Dockerfile and are considerably slower. However, they may be helpful in diagnosing certain problems.  
+
+## If All Else Fails
 If your system is not working properly, try rebooting the WSL subsystem with:
 
 {% include codeHeader.html %}
