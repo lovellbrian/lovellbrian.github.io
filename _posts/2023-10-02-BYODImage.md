@@ -63,12 +63,10 @@ Now install the Ubuntu distribution.
 ```console
  wsl --install Ubuntu-22.04
 ```
+It will ask you for a Linux username and password, I suggest you use your UQ credentials. Then the console will enter the Linux session with your username.
+
 ![Alt text](/images/image-49.png)
-
- It will ask you for a Linux username and password, I suggest you use your UQ credentials. Then the console will enter the Linux session with your username.
-
-![Alt text](/images/image-40.png)
-
+ 
 Type `exit` to go back to the console window. Type the following:
 
 {% include codeHeader.html %}
