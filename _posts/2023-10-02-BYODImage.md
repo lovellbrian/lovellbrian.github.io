@@ -81,7 +81,7 @@ If the * is not on Ubuntu-22.04, change it with
 
 {% include codeHeader.html %}
 ```console
- wsl --set-version Ubuntu-22.04
+ wsl --set-default Ubuntu-22.04
 ```
 If you want to remove an extra distribution that you have inadvertantly installed, type
 
