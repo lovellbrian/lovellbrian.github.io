@@ -56,22 +56,8 @@ wsl --update
 
 ![Alt text](/images/image-48.png)
 
-Back in the console window, type the following:
 
-{% include codeHeader.html %}
-```console
- wsl -l -v
-```
-![Alt text](/images/image-47.png)
 
-The * indicates the default distribution is Ubuntu-22.04 and it is running WSL version 2.  Good job! 
-
-If the * is not on the correct distribution, change it with
-
-{% include codeHeader.html %}
-```console
- wsl --set-version Ubuntu-22.04
-```
 Now install the Ubuntu distribution.
 
 {% include codeHeader.html %}
@@ -84,7 +70,31 @@ Now install the Ubuntu distribution.
 
 ![Alt text](/images/image-40.png)
 
-You now have a Linux machine that you can access just like an app on your windows machine.  Just type `wsl` to enter Linux and `exit` to go back to Windows. Alternatively, access Ubuntu directly from the recently added applications. It is best to pin Ubuntu to the Taskbar for easy access. 
+Type `exit` to go back to the console window. Type the following:
+
+{% include codeHeader.html %}
+```console
+ wsl -l -v
+```
+![Alt text](/images/image-47.png)
+
+The * indicates the default distribution is Ubuntu-22.04 and it is running `Ubuntu-22.04` and `docker-desktop` with version 2 of WSL.  This is the correct configuration. Good job! 
+
+If the * is not on Ubuntu-22.04, change it with
+
+{% include codeHeader.html %}
+```console
+ wsl --set-version Ubuntu-22.04
+```
+If you want to remove an extra distribution that you have inadvertantly installed, type
+
+{% include codeHeader.html %}
+```console
+ wsl --unregister <Distribution name>
+```
+You should finally get the correct configuration. 
+
+You now have a Linux machine that you can access just like an app on your windows machine.  Just type `wsl` to enter Linux and `exit` to go back to Windows. Alternatively, access Ubuntu directly from the recently added applications. It is best to pin `Ubuntu_22.04` to the Taskbar for easy access. 
 
 ## Install pip
 Install `pip` in WSL as VS Code will need it later on to add necessary extensions.
