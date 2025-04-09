@@ -72,15 +72,9 @@ Now install the Ubuntu distribution.
 ```console
  wsl --install Ubuntu-22.04
 ```
-![Alt text](/images/image-46.png)
+![Alt text](/images/image-49.png)
 
-Now type
-
-{% include codeHeader.html %}
-```console
- wsl
-```
-to open your Linux container. It will ask you for a Linux username and password, I suggest you use your UQ credentials.  The console will open in a Linux session as per below. 
+ It will ask you for a Linux username and password, I suggest you use your UQ credentials.  The console will open in a Linux session as per below. 
 
 ![Alt text](/images/image-40.png)
 
