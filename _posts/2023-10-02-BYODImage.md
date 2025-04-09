@@ -91,7 +91,7 @@ If you want to remove an extra distribution that you have inadvertantly installe
 ```
 You should finally get the correct configuration. 
 
-You now have a Linux machine that you can access just like an app on your windows machine.  Just type `wsl` to enter Linux and `exit` to go back to Windows. Alternatively, access Ubuntu directly from the recently added applications. It is best to pin `Ubuntu_22.04` to the Taskbar for easy access. 
+You now have a Linux machine that you can access just like an app on your windows machine.  Just type `wsl` to enter Linux and `exit` to go back to Windows. Alternatively, access Ubuntu directly from the recently added applications. It is best to pin `Ubuntu-22.04` to the Taskbar for easy access. 
 
 Note: If you have forgotten your `username` password, you can reset it by opening a Windows console and typing the following commands. This will open wsl as root and allows you to easily reset the password of `username`.
 
