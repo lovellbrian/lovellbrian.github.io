@@ -62,7 +62,7 @@ Now install the Ubuntu distribution.
 
 {% include codeHeader.html %}
 ```console
- wsl --install Ubuntu22.04
+ wsl --install Ubuntu-22.04
 ```
 ![Alt text](/images/image-46.png)
 
