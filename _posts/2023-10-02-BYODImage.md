@@ -45,18 +45,26 @@ A shutdown can be initiated manually by the following command:
 shutdown /r
 ```
 
-After rebooting it is a bit tricky finding your machine in the list.  Try typing your machine name `XXXX` to narrow down the list. Click on your machine name and log in. Open a console window and type:
+After rebooting it is a bit tricky finding your machine in the list.  Try typing your machine name `XXXX` to narrow down the list. 
 
-{% include codeHeader.html %}
-```console
-wsl --install
-```
-and it should say `wsl` is already installed. Next try to update to the latest version.
+Click on your machine name and log in. Open a console window and type:
 
 {% include codeHeader.html %}
 ```console
 wsl --update
 ```
+
+![Alt text](image-48.png)
+
+Back in the console window, type the following:
+
+{% include codeHeader.html %}
+```console
+ wsl -l -v
+```
+![Alt text](/images/image-47.png)
+
+The * indicates the default distribution is Ubuntu-22.04 and it is running WSL version 2.  Good job! 
 
 Now install the Ubuntu distribution.
 
@@ -65,17 +73,6 @@ Now install the Ubuntu distribution.
  wsl --install Ubuntu-22.04
 ```
 ![Alt text](/images/image-46.png)
-
-Back in the console window, type the following:
-
-{% include codeHeader.html %}
-```console
- wsl -l -v
-```
-
-![Alt text](/images/image-47.png)
-
-The * indicates the default distribution is Ubuntu-22.04 and it is running WSL version 2.  Good job! 
 
 Now type
 
