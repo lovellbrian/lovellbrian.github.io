@@ -64,15 +64,7 @@ Now install the Ubuntu distribution.
 ```console
  wsl --install Ubuntu22.04
 ```
-![Alt text](/images/image-38.png)
-
-If this command fails, you may need to reboot again. 
-
-If not, you should see the following window.
-
-![Alt text](/images/image-39.png)
-
-This window contains good information about how to use `wsl`, but you can simply close this window for now. 
+![Alt text](/images/image-46.png)
 
 Back in the console window, type the following:
 
@@ -81,9 +73,9 @@ Back in the console window, type the following:
  wsl -l -v
 ```
 
-![Alt text](/images/image-41.png)
+![Alt text](/images/image-47.png)
 
-The * indicates the default distribution is Ubuntu and it is running WSL version 2.  Good job! 
+The * indicates the default distribution is Ubuntu-22.04 and it is running WSL version 2.  Good job! 
 
 Now type
 
