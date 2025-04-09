@@ -54,7 +54,7 @@ Click on your machine name and log in. Open a console window and type:
 wsl --update
 ```
 
-![Alt text](image-48.png)
+![Alt text](/images/image-48.png)
 
 Back in the console window, type the following:
 
