@@ -16,7 +16,7 @@ First we need to make some changes to our Windows host.  There are only three so
 
 Note that if you are running on Linux or a Mac, you should already have the Linux Kernel installed, so you may simply need to install **Docker** and **Visual Studio Code**.  
 
-## 1. First Connect to a PC with a GPU
+# 1. First Connect to a PC with a GPU
 
 Use remote desktop to connect to a machine in 78-336 by connecting to `rdp.labs.eait.uq.edu.au.`
 
@@ -35,7 +35,7 @@ First check that Windows Subsystem for Linux is ticked in Windows Features as pe
 
 This may require a reboot before you go further. To ensure you get back to the same machine, please note the number of your machine in the pool which should be of the form `gs336-XXXX`.
 
-# Finding the Name of your Machine
+## Finding the Name of your Machine
 You can find out the name of the machine by searching for **System Information**. Just write down the 4 digit number. 
 
 A shutdown can be initiated manually by the following command:
@@ -44,7 +44,6 @@ A shutdown can be initiated manually by the following command:
 ```console
 shutdown /r
 ```
-
 After rebooting it is a bit tricky finding your machine in the list.  Try typing your machine name `XXXX` to narrow down the list. 
 
 Click on your machine name and log in. Open a console window and type:
