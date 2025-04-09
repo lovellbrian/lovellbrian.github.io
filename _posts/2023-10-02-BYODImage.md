@@ -66,6 +66,12 @@ Back in the console window, type the following:
 
 The * indicates the default distribution is Ubuntu-22.04 and it is running WSL version 2.  Good job! 
 
+If the * is not on the correct distribution, change it with
+
+{% include codeHeader.html %}
+```console
+ wsl --set-version Ubuntu-22.04
+```
 Now install the Ubuntu distribution.
 
 {% include codeHeader.html %}
