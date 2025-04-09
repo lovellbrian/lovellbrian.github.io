@@ -25,7 +25,7 @@ Use remote desktop to connect to a machine in 78-336 by connecting to `rdp.labs.
 Go through the connection diaglog and type your UQ credentials.
 Finally you will see connection options including `DL_GPU_Lab (78-336).`  Select this and choose your machine from the list.  It is best to keep the same machine all the time or you may have to reinstall this software.
 
-## 2. So Let's Get Started on WSL
+# 2. So Let's Get Started on WSL
 
 Follow these instructions based on [Microsoft Instructions](https://learn.microsoft.com/en-us/windows/wsl/install).
 
