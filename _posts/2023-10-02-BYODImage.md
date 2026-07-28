@@ -11,8 +11,9 @@ First we need to make some changes to our Windows host.  There are only three so
 1. Connect to a Machine in 78-336 with a GPU.
 2. Install Windows Subsystem for Linux with a Ubuntu image.
 3. Install Docker Desktop for Windows
-4. Update Nvidia Drivers \(only required if you have a GPU\)
-5. Install Visual Studio Code
+4. Install Visual Studio Code
+5. Update Nvidia Drivers \(only required if you have a GPU\)
+
 
 Note that if you are running on Linux or a Mac, you should already have the Linux Kernel installed, so you may simply need to install **Docker** and **Visual Studio Code**.  
 
@@ -29,7 +30,7 @@ Finally you will see connection options including `DL_GPU_Lab (78-336).`  Select
 
 Follow these instructions based on [Microsoft Instructions](https://learn.microsoft.com/en-us/windows/wsl/install).
 
-First check that Windows Subsystem for Linux is ticked in Windows Features as per below. Open this by searching for `Turn Windows features on or off.`
+First check that Windows Subsystem for Linux is ticked in Windows Features as per below. Open this by searching for `Turn Windows features on or off.` (this may be deprecated)
 
 ![Alt text](/images/image.png)
 
@@ -57,7 +58,7 @@ wsl --update
 
 ## Installing Ubuntu-26.04 distribution
 
-Now install the Ubuntu distribution.
+Now install the Ubuntu distribution. You may need a reboot to get this next line to work. If so, go forward with the docker desktop install, so you only need one reboot insead of two.
 
 {% include codeHeader.html %}
 ```console
@@ -73,7 +74,7 @@ Type `exit` to go back to the console window. Type the following:
 ```console
  wsl -l -v
 ```
-![Alt text](/images/image-47.png)
+![alt text](/images/image-50.png)
 
 The * indicates the default distribution is `Ubuntu-26.04` and it is running `Ubuntu-26.04` and `docker-desktop` with version 2 of WSL.  This is the correct configuration. Good job! 
 
@@ -128,7 +129,17 @@ Now you will need to configure Docker desktop. Go to Settings and select `Resour
 
 Tip: If Docker Desktop complains about Group Permission Errors simply uninstall and download the latest version from the website.  This will fix the problem.
 
-# 4. Update Nvidia Drivers
+## 4. Install Visual Studio Code
+
+Now Make sure you have Visual Studio Code (or pycharm) installed in Windows or Linux.
+
+If not, fetch Visual Studio Code from [here](https://code.visualstudio.com/download).
+
+Open VS Code 
+
+![Alt text](/images/image-13.png)
+
+# 5. Update Nvidia Drivers
 Some machines may have outdated Nvidia drivers.  Visit [Nvidia](https://www.nvidia.com/download/index.aspx) to download and install the latest driver for Windows.  For the 78-336 Lab you should select the GeForce/RTX20 Series and the Studio Drivers.
 
 ![Alt text](/images/image-21.png)
@@ -150,16 +161,6 @@ sudo ubuntu-drivers install
 ![Alt text](/images/image-30.png)
 
 Just check that `nvidia-smi` works properly before moving on. 
-
-## 5. Install Visual Studio Code
-
-Now Make sure you have Visual Studio Code (or pycharm) installed in Windows or Linux.
-
-If not, fetch Visual Studio Code from [here](https://code.visualstudio.com/download).
-
-Open VS Code 
-
-![Alt text](/images/image-13.png)
 
 
 Switch VS Code to the Linux file system by typing F1 (or Ctrl-Shift-P) then selecting **WSL: Connect to WSL**.  
