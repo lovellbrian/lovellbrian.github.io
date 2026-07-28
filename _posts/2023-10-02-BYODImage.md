@@ -74,7 +74,7 @@ Type `exit` to go back to the console window. Type the following:
 ```console
  wsl -l -v
 ```
-![alt text](/images/image-50.png)
+![Alt text](/images/image-50.png)
 
 The * indicates the default distribution is `Ubuntu-26.04` and it is running `Ubuntu-26.04` and `docker-desktop` with version 2 of WSL.  This is the correct configuration. Good job! 
 
