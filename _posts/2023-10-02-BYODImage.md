@@ -148,7 +148,7 @@ This will require a reboot.
 
 If you have a Linux machine, you should get your updated drivers and the CUDA Toolkit from [Nvidia Developer](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_network).
 
-A container is able to run on any GPU card because it mounts the local drivers. This means that the local CUDA drivers must be compatible with the container image. I currently use a very recent image of CUDA 12.2, so there is probably a need to update.
+A container is able to run on any GPU card because it mounts the local drivers. This means that the local CUDA drivers must be compatible with the container image. 
 
 ![Alt text](/images/image-29.png)
 
