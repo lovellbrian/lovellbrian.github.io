@@ -20,7 +20,7 @@ First we need to make some changes to our Windows host.  There are only three so
 
 Note that if you are running on Linux or a Mac, you should already have the Linux Kernel installed, so you may simply need to install **Docker** and **Visual Studio Code**.  
 
-# 1. First Connect to a PC with a GPU
+# First Connect to a PC with a GPU
 
 Use remote desktop to connect to a machine in 78-336 by connecting to `rdp.labs.eait.uq.edu.au.`
 
@@ -29,7 +29,7 @@ Use remote desktop to connect to a machine in 78-336 by connecting to `rdp.labs.
 Go through the connection diaglog and type your UQ credentials.
 Finally you will see connection options including `DL_GPU_Lab (78-336).`  Select this and choose your machine from the list.  It is best to keep the same machine all the time or you may have to reinstall this software.
 
-# 2. So Let's Get Started on WSL
+# So Let's Get Started on WSL
 
 Follow these instructions based on [Microsoft Instructions](https://learn.microsoft.com/en-us/windows/wsl/install).
 
@@ -106,7 +106,7 @@ passwd <username>
 ```
 Once your password is reset, reopen the WSL session and use your brand new password. 
 
-# 3. Now we Install Docker Desktop for Windows
+# Now we Install Docker Desktop for Windows
 
 Simply follow the
 
@@ -132,7 +132,7 @@ Now you will need to configure Docker desktop to use wsl. Go to Settings and sel
 
 Tip: If Docker Desktop complains about Group Permission Errors simply uninstall and download the latest version from the website.  This will fix the problem.
 
-# 4. Install Visual Studio Code
+# Install Visual Studio Code
 
 Now Make sure you have Visual Studio Code (or pycharm) installed in Windows or Linux.
 
@@ -142,7 +142,7 @@ Open VS Code
 
 ![Alt text](/images/image-13.png)
 
-# 5. Update Nvidia Drivers
+# Update Nvidia Drivers
 Some machines may have outdated Nvidia drivers.  Visit [Nvidia](https://www.nvidia.com/download/index.aspx) to download and install the latest driver for Windows.  For the 78-336 Lab you should select the GeForce/RTX20 Series and the Studio Drivers.
 
 ![Alt text](/images/image-21.png)
