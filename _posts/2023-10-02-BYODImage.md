@@ -30,7 +30,7 @@ Finally you will see connection options including `DL_GPU_Lab (78-336).`  Select
 
 Follow these instructions based on [Microsoft Instructions](https://learn.microsoft.com/en-us/windows/wsl/install).
 
-First check that Windows Subsystem for Linux is ticked in Windows Features as per below. Open this by searching for `Turn Windows features on or off.` (this may be deprecated)
+First check that Windows Subsystem for Linux is ticked in Windows Features as per below. Open this by searching for `Turn Windows features on or off.` (this may be deprecated in more recent Windows builds)
 
 ![Alt text](/images/image.png)
 
