@@ -68,7 +68,7 @@ It will ask you for a Linux username and password, I suggest you use your UQ cre
 
 ![Alt text](/images/image-49.png)
  
-Type `exit` to go back to the console window from unix. Now ype the following:
+Type `exit` to go back to the console window from unix. Now type the following:
 
 {% include codeHeader.html %}
 ```console
