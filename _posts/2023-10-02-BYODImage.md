@@ -132,7 +132,7 @@ Now you will need to configure Docker desktop to use wsl. Go to Settings and sel
 
 Tip: If Docker Desktop complains about Group Permission Errors simply uninstall and download the latest version from the website.  This will fix the problem.
 
-## 4. Install Visual Studio Code
+# 4. Install Visual Studio Code
 
 Now Make sure you have Visual Studio Code (or pycharm) installed in Windows or Linux.
 
@@ -209,7 +209,7 @@ First, the notebook will fetch one bird image and then one woodlands image from 
 
 Type F1 (or Ctrl-Shift-P) then select `Remote: Close Remote Connection`. This will place your back in the Windows Environment.  Next Type F1 (or Ctrl-Shift-P) then select `WSL: Connect to WSL` to return to Linux. Chose your active repository by `Cloning` from GitHub or `Opening` the folder. Finally type F1 (or Ctrl-Shift-P) and select `Dev Container: Rebuild and Reopen in Container` to return to the Dev Container.
 
-# Other Things you can Try.
+# Other Things you can Try
 
 Try running the command `nvidia-smi` in a console terminal.
 
