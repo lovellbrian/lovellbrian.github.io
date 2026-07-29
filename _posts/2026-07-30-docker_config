@@ -1,0 +1,21 @@
+# Need to Change ~/.docker/config.json
+
+In ~/.docker/config.json change credsStore to credStore.
+
+## Explanation
+
+The property credsStore specifies an external binary to serve as the default credential store. When this property is set, docker login will attempt to store credentials in the binary specified by docker-credential-value which is visible on $PATH. If this property is not set, credentials will be stored in the auths property of the config.
+
+More information on credStore can be found in the Docker reference.
+
+https://stackoverflow.com/questions/65896681/exec-docker-credential-desktop-exe-executable-file-not-found-in-path
+
+Happy coding on your devcontainers. 
+
+Brian
+
+![Lovell Portrait](/images/Lovell_portrait_small.jpg "Brian Lovell")
+
+<!-- Put Javascript here! -->
+
+<script src="/assets/scripts/copyCode.js" async> </script>
