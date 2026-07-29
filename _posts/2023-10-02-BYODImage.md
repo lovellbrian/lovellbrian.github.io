@@ -58,7 +58,7 @@ wsl --update
 
 ## Installing Ubuntu-26.04 distribution
 
-Now install the Ubuntu distribution. You may need a reboot to get this next line to work. If so, go forward with the docker desktop install, so you only need one reboot insead of two.
+Now install the Ubuntu distribution. You will need a reboot to get this next line to work. If so, go forward with the docker desktop install, so you only need one reboot instead of two.
 
 {% include codeHeader.html %}
 ```console
@@ -68,7 +68,7 @@ It will ask you for a Linux username and password, I suggest you use your UQ cre
 
 ![Alt text](/images/image-49.png)
  
-Type `exit` to go back to the console window. Type the following:
+Type `exit` to go back to the console window from unix. Now ype the following:
 
 {% include codeHeader.html %}
 ```console
@@ -76,9 +76,9 @@ Type `exit` to go back to the console window. Type the following:
 ```
 ![Alt text](/images/image-50.png)
 
-The * indicates the default distribution is `Ubuntu-26.04` and it is running `Ubuntu-26.04` and `docker-desktop` with version 2 of WSL.  This is the correct configuration. Good job! 
+The `*` indicates the default distribution is `Ubuntu-26.04` and it is running `Ubuntu-26.04` and `docker-desktop` with version 2 of WSL.  This is the correct configuration. Good job! 
 
-If the * is not on Ubuntu-26.04, change it with
+If the `*` is not on Ubuntu-26.04, change it with
 
 {% include codeHeader.html %}
 ```console
