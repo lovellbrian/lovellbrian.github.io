@@ -172,9 +172,7 @@ Now you can open the `course22` repository in VS Code. If the `WSL: Connect to W
 
 Type F1 (or Ctrl-Shift-P) then select `Git: Clone`. Choose `Clone from GitHub`. Select repository `lovellbrian/course22`. You will then be asked where to put the files. 
 
-Alternatively `fork` the repository and clone the fork.  Select repository `<yourusername>/course22`. If you make a fork, you can then use `Git` to synchronise your changes to `GitHUB`.  Note that your fork is publically visible and security should be made private. Public assignment solutions are not permissible under University policy. 
-
-Fortunately, there is a [different](https://lovellbrian.github.io/2025/03/23/private.html) method to create a fork which can be made private. You must do this for your University Assignments.
+(Alternatively you can `fork` the repository and clone the fork.  Select repository `<yourusername>/course22`. If you make a fork, you can then use `Git` to synchronise your changes to `GitHUB`.  Note that your fork is publically visible and should be made private. Public assignment solutions are not permissible under University policy. Fortunately, there is a [different](https://lovellbrian.github.io/2025/03/23/private.html) method to create a fork which can be made private. You can use this for your University Assignments.)
 
 ![Alt text](/images/image-45.png)
 
@@ -182,7 +180,7 @@ Simply accept the default of storing your repository in your home directory. Onc
 
 ![Alt text](/images/image-43.png)
 
-Click down the bottom left of the window where it says the word `master` and change this to `gpufrozen` or `cpufrozen`.  If you have a GPU you can use `gpufrozen`. If you only have a CPU you must use `cpufrozen`.  These branch change instructions make sure you are using the modified code rather than the `master` branch which is the original fastai code.
+Click down the bottom left of the window where it says the word `master` and change this branch to `gpufrozen` or `cpufrozen`.  If you have a GPU you can use `gpufrozen`. If you only have a CPU you must use `cpufrozen`.  These branch change instructions make sure you are using the modified code rather than the `master` branch which is the original fastai code.
 
 ![Alt text](/images/image-44.png)
 
@@ -199,6 +197,8 @@ rm -rf ~/.vscode-server
 ![Alt text](/images/image-16.png)
 
 Enjoy the scrolling text or go make yourself a coffee.  This will take 15 or more minutes on the first run.  However, the next run will be only a few seconds. 
+
+Now you should be working in a container.
 
 Now open the Notebook `00-is-it-a-bird-creating-a-model-from-your-own-data.ipynb.`
 Click on `Run All` at the top of the screen.  It will then ask you to choose a kernel source.  Select Python Environments and the recommended version of Python (3.10.12 at the time of writing).  Now the notebook should be running. 
